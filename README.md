@@ -4,9 +4,9 @@ A modified Minecraft Java client that exposes a clean and simple interface to pr
 
 ## Quick start
 
-* [Download the latest release](https://github.com/minecraftkids/minecraftOpenMod/files/93043/1.8.mod.zip)
+* [Download the latest release](https://github.com/minecraftkids/minecraftOpenMod/files/100358/1.8.8.mod.zip)
 * Unzip to the Minecraft's versions directory. On Windows OS it is at: %appData%/.minecraft/versions
-* Launch Minecraft and create a profile using version 1.8.mod, and start the game with the profile.
+* Launch Minecraft and create a profile using version 1.8.8.mod, and start the game with the profile.
 * Use Ctrl+Down Arrow to bring up Mod UI, use Ctrl+Up Arrow or Esc key to hide UI
 * On the Mod UI, click on "Commands" tab, click on "Add" button to add your own custom command class. Once loaded your command will appear as a link in the tab
 
