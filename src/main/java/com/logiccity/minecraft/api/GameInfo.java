@@ -11,17 +11,17 @@ import java.util.List;
 public interface GameInfo {
 	/**
 	 * Get player x coordinate
-	 * @return
+	 * @return x
 	 */
 	double getPlayerPosX();
 	/**
 	 * Get player y coordinate
-	 * @return
+	 * @return y
 	 */
 	double getPlayerPosY();
 	/**
 	 * Get player z coordinate
-	 * @return
+	 * @return z
 	 */
 	double getPlayerPosZ();
 	/**
@@ -54,7 +54,7 @@ public interface GameInfo {
 	float getPreviousRotationPitch();
 	/**
 	 * Get player's block pos
-	 * @return
+	 * @return block pos
 	 */
 	BlockPos getPlayerBlockPos();
 	/**
@@ -83,24 +83,24 @@ public interface GameInfo {
 	boolean isModEnabled(String name);
 	/**
 	 * Check if the current game mode is creative
-	 * @return
+	 * @return true if in creative mode
 	 */
 	boolean isCreativeMode();
 	/**
 	 * Check if the player is flying
-	 * @return
+	 * @return true if flying
 	 */
 	boolean isPlayerFlying();
 	/**
 	 * Check if a block is in water
 	 * @param pos block position
-	 * @return
+	 * @return true if in water
 	 */
 	boolean isInWater(BlockPos pos);
 	/**
 	 * Check if the named command is running
 	 * @param name command name
-	 * @return 
+	 * @return true if command is running
 	 */
 	boolean isCommandRunning(String name);
 	/**

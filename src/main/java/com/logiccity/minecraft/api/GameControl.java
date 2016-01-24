@@ -58,23 +58,23 @@ public interface GameControl {
 	
 	/**
 	 * Set the player's rotation pitch to a new value
-	 * @param pitch
+	 * @param pitch pitch
 	 */
 	void setRotationPitch(float pitch);
 	/**
 	 * Set the player's rotation yaw to a new value
-	 * @param yaw
+	 * @param yaw yaw
 	 */
 	void setRotationYaw(float yaw);
 	
 	/**
 	 * Send error level message to the chat log
-	 * @param msg
+	 * @param msg error message
 	 */
 	void chatLogError(String msg);
 	/**
 	 * Send info level message to the chat log
-	 * @param msg
+	 * @param msg info message
 	 */
 	void chatLogInfo(String msg);
 	
@@ -145,7 +145,7 @@ public interface GameControl {
 	/**
 	 * March toward and attack the named entity
 	 * @param chosenName entity name
-	 * @param the minimal wait time in milliseconds between consecutive attacks
+	 * @param waitMs the minimal wait time in milliseconds between consecutive attacks
 	 * @return target dead or can't be attacked
 	 */
 	boolean marchAttackEntity(String chosenName, int waitMs);
