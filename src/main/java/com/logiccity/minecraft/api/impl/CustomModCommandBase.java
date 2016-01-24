@@ -20,4 +20,15 @@ public abstract class CustomModCommandBase extends ApiCommandBase implements Mod
 		return false;
 	}
 
+	@Override
+	public boolean doInCmdInputThread(String input) {
+		if ("stopAll".equals(input)) {
+			return true;
+		}
+		return handleCmdInput(input);
+	}
+
+	protected boolean handleCmdInput(String input) {
+		return false;
+	}
 }

@@ -1,6 +1,7 @@
 package com.logiccity.minecraft.api;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The interface for retrieving player/game info
@@ -113,5 +114,11 @@ public interface GameInfo {
 	 * @return true if player blocked
 	 */
 	boolean isPlayerMovementRestricked();
+	/**
+	 * Get the names of entities that are closest to the player
+	 * @param count the number of entities names to return 
+	 * @return list of names
+	 */
+	List<String> getClosestEntityNames(int count);
 	
 }

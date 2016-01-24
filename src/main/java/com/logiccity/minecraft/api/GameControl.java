@@ -141,4 +141,12 @@ public interface GameControl {
 	 * @param z z offset
 	 */
 	void buildOneBlock(int[] relativePos, float yaw, double x, double y, double z);
+	
+	/**
+	 * March toward and attack the named entity
+	 * @param chosenName entity name
+	 * @param the minimal wait time in milliseconds between consecutive attacks
+	 * @return target dead or can't be attacked
+	 */
+	boolean marchAttackEntity(String chosenName, int waitMs);
 }

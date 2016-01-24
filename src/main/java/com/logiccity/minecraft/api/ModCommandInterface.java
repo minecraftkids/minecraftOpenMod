@@ -26,4 +26,11 @@ public interface ModCommandInterface {
 	 * @return true will cause the command to be stopped, false will cause the command to continue
 	 */
 	boolean doInRenderTicThread();
+	/**
+	 * Configure this command based on user input from on the chat line. All command configuration
+	 * chat inputs start with "/-"
+	 * @param input the string after "/-"
+	 * @return true will cause the command to be stopped, false will cause the command to continue
+	 */
+	boolean doInCmdInputThread(String input);
 }
