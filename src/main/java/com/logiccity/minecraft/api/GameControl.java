@@ -100,7 +100,7 @@ public interface GameControl {
 	
 	/**
 	 * Start to record player's block placements/destructions 
-	 * @param name the name used to identify the recoreded building steps
+	 * @param name the name used to identify the recorded building steps
 	 */
 	void recordBuildingSteps(String name);
 	/**
@@ -149,4 +149,10 @@ public interface GameControl {
 	 * @return target dead or can't be attacked
 	 */
 	boolean marchAttackEntity(String chosenName, int waitMs);
+	
+	/**
+	 * Start to record all player activities
+	 * @param name the name used to identify the recorded activities
+	 */
+	void recordAllSteps(String name);
 }
