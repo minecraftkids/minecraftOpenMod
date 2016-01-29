@@ -4,7 +4,7 @@ A modified Minecraft Java client that exposes a clean and simple interface to pr
 
 ## Quick start
 
-* [Download the latest release](https://github.com/minecraftkids/minecraftOpenMod/files/102081/1.8.8.mod.zip)
+* Download 1.8.8.mod.zip on the [release page](https://github.com/minecraftkids/minecraftOpenMod/releases)
 * Unzip to the Minecraft's versions directory. On Windows OS it is at: %appData%/.minecraft/versions
 * Launch Minecraft and create a profile using version 1.8.8.mod, and start the game with the profile.
 * Use Ctrl+Down Arrow to bring up Mod UI, use Ctrl+Up Arrow or Esc key to hide UI
