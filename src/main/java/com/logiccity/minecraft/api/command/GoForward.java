@@ -29,6 +29,4 @@ public class GoForward extends CustomModCommandBase {
 		gameControl.releaseForwardKey();
 		return true;
 	}
-
-
 }

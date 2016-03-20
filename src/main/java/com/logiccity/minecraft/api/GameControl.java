@@ -100,7 +100,7 @@ public interface GameControl {
 	
 	/**
 	 * Start to record player's block placements/destructions 
-	 * @param name the name used to identify the recorded building steps
+	 * @param name the name used to identify the recorded steps
 	 */
 	void recordBuildingSteps(String name);
 	/**
@@ -134,7 +134,7 @@ public interface GameControl {
 	
 	/**
 	 * Build one block based on the coordinates passed in
-	 * @param relativePos an integer array with relative x, y, z and a optional side face
+	 * @param relativePos an integer array with relative x, y, z and an optional side face
 	 * @param yaw the yaw of player
 	 * @param x x offset
 	 * @param y y offset

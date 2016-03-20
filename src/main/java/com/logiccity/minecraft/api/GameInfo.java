@@ -25,11 +25,11 @@ public interface GameInfo {
 	 */
 	double getPlayerPosZ();
 	/**
-	 * Get square of the distance form the player to a point
+	 * Get the square distance form the player to a point
 	 * @param x the point's x coordinate
 	 * @param y the point's y coordinate
 	 * @param z the point's z coordinate
-	 * @return square of the distance
+	 * @return the square distance
 	 */
 	double getPlayerDistanceSq(double x, double y, double z);
 	/**
