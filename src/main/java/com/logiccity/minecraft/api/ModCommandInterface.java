@@ -16,6 +16,7 @@ public interface ModCommandInterface {
 	 * Cleanup the command
 	 */
 	public void cleanupCmd();
+	
 	/**
 	 * Run operations in the update tic thread. This method will be invoked every few milliseconds
 	 * @return true will cause the command to be stopped, false will cause the command to continue

@@ -8,15 +8,6 @@ package com.logiccity.minecraft.api;
  */
 public interface CommandInterface {
 	/**
-	 * Initialize the command
-	 * @param args command arguments
-	 */
-	void initCmd(String[] args);
-	/**
-	 * Clean up the command
-	 */
-	public void cleanupCmd();
-	/**
 	 * Execute the synchronous one time operation
 	 * @param args command arguments
 	 */
