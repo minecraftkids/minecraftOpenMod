@@ -110,10 +110,15 @@ public interface GameInfo {
 	 */
 	ArrayList<BuildStepRecord> loadRecordedBuildingSteps(String name);
 	/**
-	 * Check if the play trying to move but was blocked
-	 * @return true if player blocked
+	 * Check if the player is attempting to move
+	 * @return true if player is attempting to move
 	 */
-	boolean isPlayerMovementRestricked();
+	boolean isPlayerAttemptingMove();
+	/**
+	 * Check if the player is changing location
+	 * @return true if player is changing location
+	 */
+	boolean isPlayerChaningLocation();
 	/**
 	 * Get the names of entities that are closest to the player
 	 * @param count the number of entities names to return 

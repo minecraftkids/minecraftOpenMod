@@ -88,7 +88,7 @@ public class GoToCmd extends CustomModCommandBase {
 		{
 			return true;
 		}
-		if (gameInfo.isPlayerMovementRestricked()) {
+		if (gameInfo.isPlayerAttemptingMove() && (! gameInfo.isPlayerChaningLocation())) {
 			setBlockCenterFlags();
 		}
 		resetControls();
