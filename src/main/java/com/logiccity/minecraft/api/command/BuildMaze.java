@@ -23,7 +23,7 @@ public class BuildMaze extends CustomModCommandBase {
 		maze = gameInfo.generateMaze(width, length);
 		width = maze.length;
 		length = maze[0].length;
-		startBp = gameInfo.getPlayerBlockPos().add(0, 0, 2);
+		startBp = gameInfo.getPlayerBlockPos().add(0, 0, 3);
 		while(! checkBp(startBp)) {
 			startBp = startBp.add(1, 0, 0);
 		}
@@ -63,12 +63,13 @@ public class BuildMaze extends CustomModCommandBase {
 				return true;
 			}
 			cBP = startBp.add(-cx, 0, -cz);
-		}
-		BlockPos playerBP = gameInfo.getPlayerBlockPos();
-		if (Math.abs(playerBP.getX() -cBP.getX()) > 3 || cBP.getZ() - playerBP.getZ() < 2) {
-			gameControl.executeCommand("goto", new String[] {String.valueOf(cBP.getX()), 
-					String.valueOf(cBP.getY()), String.valueOf(cBP.getZ()-3)});
-			return false;
+		} else if (cBP != null) {
+			BlockPos playerBP = gameInfo.getPlayerBlockPos();
+			if (Math.abs(playerBP.getX() -cBP.getX()) > 3 || cBP.getZ() - playerBP.getZ() < 2) {
+				gameControl.executeCommand("goto", new String[] {String.valueOf(cBP.getX()), 
+						String.valueOf(cBP.getY()), String.valueOf(cBP.getZ()-3)});
+				return false;
+			}
 		}
 		if (maze[cx][cz]) {
 			gameControl.playerSwingItem();
