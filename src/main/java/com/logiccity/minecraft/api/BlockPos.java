@@ -25,6 +25,10 @@ public class BlockPos {
 		return z;
 	}
 	
+	@Override
+	public String toString() {
+		return "(" + x + "," + y + "," + z + ")";
+	}
     public BlockPos add(int x, int y, int z) {
         return new BlockPos(this.getX() + x, this.getY() + y, this.getZ() + z);
     }

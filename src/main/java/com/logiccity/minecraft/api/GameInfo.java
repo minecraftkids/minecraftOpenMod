@@ -126,4 +126,10 @@ public interface GameInfo {
 	 */
 	List<String> getClosestEntityNames(int count);
 	
+	/**
+	 * Generated a random 2-D maze 
+	 * @param columns the number of path ways in each row
+	 * @param rows the number of path ways in each column 
+	 */
+	boolean [][] generateMaze(int columns, int rows);
 }

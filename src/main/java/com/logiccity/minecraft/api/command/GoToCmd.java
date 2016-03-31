@@ -193,7 +193,7 @@ public class GoToCmd extends CustomModCommandBase {
 		}
 
 		boolean needCenter() {
-			return pz || nz || px || nx;
+			return false; //pz || nz || px || nx;
 		}
 	}
 	
