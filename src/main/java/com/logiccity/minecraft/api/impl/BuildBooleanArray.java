@@ -6,7 +6,7 @@ public class BuildBooleanArray extends CustomModCommandBase {
 	protected BuildBooleanArray(String name, int... args) {
 		super(name, args);
 	}
-	private int width, length, height = 2, cx = -1, cz = 0;
+	private int width, length, cx, cz;
 	protected boolean[][] maze;
 	private BlockPos cBP = null;
 	protected BlockPos startBp;
@@ -19,6 +19,8 @@ public class BuildBooleanArray extends CustomModCommandBase {
 			startBp = startBp.add(1, 0, 0);
 		}
 		cBP = null;
+		cx = -1;
+		cz = 0;
 	}
 	
 	private boolean checkBp(BlockPos bp1) {
