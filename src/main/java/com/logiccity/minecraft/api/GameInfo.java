@@ -132,4 +132,10 @@ public interface GameInfo {
 	 * @param rows the number of path ways in each column 
 	 */
 	boolean [][] generateMaze(int columns, int rows);
+	
+	/**
+	 * Get player mouse over block pos
+	 * @return block pos
+	 */
+	BlockPos getMouseOverBlock();
 }

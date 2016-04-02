@@ -22,7 +22,7 @@ public abstract class CustomModCommandBase extends ApiCommandBase implements Mod
 
 	@Override
 	public boolean doInCmdInputThread(String input) {
-		if ("stopAll".equals(input)) {
+		if ("stop".equals(input)) {
 			return true;
 		}
 		return handleCmdInput(input);

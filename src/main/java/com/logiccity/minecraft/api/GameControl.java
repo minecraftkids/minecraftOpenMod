@@ -55,7 +55,15 @@ public interface GameControl {
 	 * Release the sneak key
 	 */
 	void releaseSneakKey();
-	
+	/**
+	 * Press the attack key
+	 */
+	void pressAttackKey();
+	/**
+	 * Release the attack key
+	 */
+	void releaseAttackKey();
+
 	/**
 	 * Set the player's rotation pitch to a new value
 	 * @param pitch pitch
