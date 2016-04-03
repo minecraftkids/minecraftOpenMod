@@ -3,13 +3,19 @@ package com.logiccity.minecraft.api.impl;
 import com.logiccity.minecraft.api.BlockPos;
 
 public class BuildBooleanArray extends CustomModCommandBase {
-	protected BuildBooleanArray(String name, int... args) {
-		super(name, args);
-	}
+	private boolean cheatMode = false;
 	private int width, length, cx, cz;
 	protected boolean[][] maze;
 	private BlockPos cBP = null;
 	protected BlockPos startBp;
+	protected int height = 1;
+	protected BuildBooleanArray(String name, int... args) {
+		super(name, args);
+	}
+	protected BuildBooleanArray(boolean cheatMode, String name, int... args) {
+		super(name, args);
+		this.cheatMode = cheatMode;
+	}
 	@Override
 	public void initCmd(String [] args) {
 		gameControl.executeCommand("turn", new String[] {"0", "0"});
@@ -58,15 +64,17 @@ public class BuildBooleanArray extends CustomModCommandBase {
 		} else if (cBP != null) {
 			BlockPos playerBP = gameInfo.getPlayerBlockPos();
 			if (Math.abs(playerBP.getX() -cBP.getX()) > 3 || cBP.getZ() - playerBP.getZ() < 2) {
-				gameControl.executeCommand("goto", new String[] {String.valueOf(cBP.getX()), 
+				gameControl.executeCommand(
+						cheatMode ? "tpo" : "goto", new String[] {String.valueOf(cBP.getX()), 
 						String.valueOf(cBP.getY()), String.valueOf(cBP.getZ()-3)});
 				return false;
 			}
 		}
 		if (maze[cx][cz]) {
 			gameControl.playerSwingItem();
-			gameControl.sendBlockPlacementPacket(cBP.getX(), cBP.getY()-1, cBP.getZ(), 
-					1, 0, 0, 0);
+			for(int i=0;i<height;i++){
+			gameControl.sendBlockPlacementPacket(cBP.getX(), cBP.getY()-1+i, cBP.getZ(), 
+					1, 0, 0, 0);}
 			System.out.println(cBP);
 		} else {
 			cBP = null;

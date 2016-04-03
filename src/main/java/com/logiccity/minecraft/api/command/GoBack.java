@@ -4,7 +4,7 @@ import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 
 public class GoBack extends CustomModCommandBase {
 	private GoBack() {
-		super("goBK", 1);
+		super("goB", 1);
 	}
 	
 	double dist , startX, startY, startZ;

@@ -163,4 +163,12 @@ public interface GameControl {
 	 * @param name the name used to identify the recorded activities
 	 */
 	void recordAllSteps(String name);
+	/**
+	 * Teleport user to new x,y,z
+	 * @param x new x location
+	 * @param y new y location
+	 * @param z new z location
+	 */
+	void setPlayerLocation(double x, double y, double z);
+	
 }

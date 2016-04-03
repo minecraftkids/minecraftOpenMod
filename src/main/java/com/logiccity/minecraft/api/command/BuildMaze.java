@@ -6,10 +6,13 @@ import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 
 public class BuildMaze extends BuildBooleanArray {
 
-	private int width, length, height = 2;
+	private int width, length;
 	
 	protected BuildMaze() {
 		super("buildMaze", 2, 3);
+	}
+	protected BuildMaze(String cheatName) {
+		super(true, cheatName, 2, 3);
 	}
 	@Override
 	public void initCmd(String [] args) {

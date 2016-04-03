@@ -18,7 +18,7 @@ public class BuildLetters extends BuildBooleanArray {
 				new boolean[] { true, false, false, false, true }, new boolean[] { true, true, true, true, true },
 				new boolean[] { true, false, false, false, true }, new boolean[] { true, true, true, true, false } });
 
-		map.put('C', new boolean[][] { new boolean[] { true, true, true, true, false },
+		map.put('C', new boolean[][] { new boolean[] { true, true, true, true, true },
 				new boolean[] { true, false, false, false, false }, new boolean[] { true, false, false, false, false },
 				new boolean[] { true, false, false, false, false }, new boolean[] { true, true, true, true, true } });
 		map.put('D', new boolean[][] { new boolean[] { true, true, true, true, false },
@@ -27,7 +27,7 @@ public class BuildLetters extends BuildBooleanArray {
 
 		map.put('E', new boolean[][] { new boolean[] { true, true, true, true, true },
 				new boolean[] { true, false, false, false, false }, new boolean[] { true, true, true, true, false },
-				new boolean[] { true, false, false, false, true }, new boolean[] { true, true, true, true, true } });
+				new boolean[] { true, false, false, false, false }, new boolean[] { true, true, true, true, true } });
 		map.put('F',
 				new boolean[][] { new boolean[] { true, true, true, true, true },
 						new boolean[] { true, false, false, false, false },

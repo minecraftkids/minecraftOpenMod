@@ -138,4 +138,15 @@ public interface GameInfo {
 	 * @return block pos
 	 */
 	BlockPos getMouseOverBlock();
+	/**
+	 * If the forward key is pressed
+	 * @return true if moving forward
+	 */
+	boolean isMovingForward();
+	/**
+	 * Get a player's location
+	 * @param name player name
+	 * @return block position
+	 */
+	BlockPos getPlayerLocation(String name);
 }
