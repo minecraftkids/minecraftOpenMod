@@ -10,136 +10,151 @@ public interface GameControl {
 	/**
 	 * Press the forward key
 	 */
+	@MovePlayerStart
 	void pressForwardKey();
-	/**
-	 * Release the forward key
-	 */
-	void releaseForwardKey();
 	/**
 	 * Press the backward key
 	 */
+	@MovePlayerStart
 	void pressBackKey();
-	/**
-	 * Release the backward key
-	 */
-	void releaseBackKey();
 	/**
 	 * Press the left key
 	 */
+	@MovePlayerStart
 	void pressLeftKey();
-	/**
-	 * Release the left key
-	 */
-	void releaseLeftKey();
 	/**
 	 * Press the right key
 	 */
+	@MovePlayerStart
 	void pressRightKey();
-	/**
-	 * Release the right key
-	 */
-	void releaseRightKey();
 	/**
 	 * Press the jump key
 	 */
+	@MovePlayerStart
 	void pressJumpKey();
+	/**
+	 * Make the player jump once
+	 */
+	@MovePlayerStart
+	void playerJumpOnce();
+	
+	/**
+	 * Release the forward key
+	 */
+	@MovePlayerStop
+	void releaseForwardKey();
+	/**
+	 * Release the backward key
+	 */
+	@MovePlayerStop
+	void releaseBackKey();
+	/**
+	 * Release the left key
+	 */
+	@MovePlayerStop
+	void releaseLeftKey();
+	/**
+	 * Release the right key
+	 */
+	@MovePlayerStop
+	void releaseRightKey();
 	/**
 	 * Release the jump key
 	 */
+	@MovePlayerStop
 	void releaseJumpKey();
 	/**
-	 * Press the sneak key
+	 * Clear player's XZ momentum so it will stop moving
 	 */
-	void pressSneakKey();
-	/**
-	 * Release the sneak key
-	 */
-	void releaseSneakKey();
+	@MovePlayerStop
+	void clearPlayerMotionXZ();
+	
 	/**
 	 * Press the attack key
 	 */
+	@PlayerAttack
 	void pressAttackKey();
 	/**
 	 * Release the attack key
 	 */
+	@PlayerAttack
 	void releaseAttackKey();
+	/**
+	 * Send destroy block packet to the server
+	 * @param target the target block
+	 * @param facing the face of the block clicked
+	 */
+	@PlayerAttack
+	void sendDestoryBlockAt(BlockPos target, int facing);
+	/**
+	 * March toward and attack the named entity
+	 * @param chosenName entity name
+	 * @param waitMs the minimal wait time in milliseconds between consecutive attacks
+	 * @return target dead or can't be attacked
+	 */
+	@PlayerAttack
+	boolean marchAttackEntity(String chosenName, int waitMs);
+	/**
+	 * Make the player swing current holding item
+	 */
+	@PlayerAttack
+	void playerSwingItem();
 
 	/**
 	 * Set the player's rotation pitch to a new value
 	 * @param pitch pitch
 	 */
+	@ChangePlayerStatus
 	void setRotationPitch(float pitch);
 	/**
 	 * Set the player's rotation yaw to a new value
 	 * @param yaw yaw
 	 */
+	@ChangePlayerStatus
 	void setRotationYaw(float yaw);
-	
 	/**
-	 * Send error level message to the chat log
-	 * @param msg error message
+	 * Press the sneak key
 	 */
-	void chatLogError(String msg);
+	@ChangePlayerStatus
+	void pressSneakKey();
 	/**
-	 * Send info level message to the chat log
-	 * @param msg info message
+	 * Release the sneak key
 	 */
-	void chatLogInfo(String msg);
+	@ChangePlayerStatus
+	void releaseSneakKey();
+	/**
+	 * Set the players current holding item
+	 * @param index the index of target item
+	 * @return true if the current holding item was changed
+	 */
+	@ChangePlayerStatus
+	boolean setPlayerCurrentItem(int index);
+	/**
+	 * Teleport user to new x,y,z. Single player creative mode only
+	 * @param x new x location
+	 * @param y new y location
+	 * @param z new z location
+	 */
+	@ChangePlayerStatus
+	void setPlayerLocation(double x, double y, double z);
 	
 	/**
 	 * Execute a command
 	 * @param name the command name
 	 * @param args arguments to the command
 	 */
+	@CommandAccess
 	void executeCommand(String name, String[] args);
 	
-	/**
-	 * Make the player jump once
-	 */
-	void playerJumpOnce();
-	/**
-	 * Clear player's XZ momentum so it will stop moving
-	 */
-	void clearPlayerMotionXZ();
-	/**
-	 * Make the player swing current holding item
-	 */
-	void playerSwingItem();
-	
-	/**
-	 * Start to record player's block placements/destructions 
-	 * @param name the name used to identify the recorded steps
-	 */
-	void recordBuildingSteps(String name);
-	/**
-	 * Stop the current recording
-	 */
-	void stopRecordSteps();
 	/**
 	 * Send block placement packet to the server
 	 * @param x the x of the block being clicked 
 	 * @param y the y of the block being clicked
 	 * @param z the z of the block being clicked
 	 * @param placeDir the clicked face of the block
-	 * @param dx x offset
-	 * @param dy y offset
-	 * @param dz z offset
 	 */
-	void sendBlockPlacementPacket(int x, int y, int z, int placeDir, float dx,
-			float dy, float dz);
-	/**
-	 * Send destroy block packet to the server
-	 * @param target the target block
-	 * @param facing the face of the block clicked
-	 */
-	void sendDestoryBlockAt(BlockPos target, int facing);
-	/**
-	 * Set the players current holding item
-	 * @param index the index of target item
-	 * @return true if the current holding item was changed
-	 */
-	boolean setPlayerCurrentItem(int index);
-	
+	@BuildBlocks
+	void sendBlockPlacementPacket(int x, int y, int z, int placeDir);
 	/**
 	 * Build one block based on the coordinates passed in
 	 * @param relativePos an integer array with relative x, y, z and an optional side face
@@ -148,27 +163,46 @@ public interface GameControl {
 	 * @param y y offset
 	 * @param z z offset
 	 */
+	@BuildBlocks
 	void buildOneBlock(int[] relativePos, float yaw, double x, double y, double z);
 	
 	/**
-	 * March toward and attack the named entity
-	 * @param chosenName entity name
-	 * @param waitMs the minimal wait time in milliseconds between consecutive attacks
-	 * @return target dead or can't be attacked
+	 * Start to record player's block placements/destructions 
+	 * @param name the name used to identify the recorded steps
 	 */
-	boolean marchAttackEntity(String chosenName, int waitMs);
-	
+//	@HelperUtils
+	void recordBuildingSteps(String name);
 	/**
 	 * Start to record all player activities
 	 * @param name the name used to identify the recorded activities
 	 */
+//	@HelperUtils
 	void recordAllSteps(String name);
 	/**
-	 * Teleport user to new x,y,z
-	 * @param x new x location
-	 * @param y new y location
-	 * @param z new z location
+	 * Stop the current recording
 	 */
-	void setPlayerLocation(double x, double y, double z);
-	
+//	@HelperUtils
+	void stopRecordSteps();
+
+	/**
+	 * Send error level message to the chat log
+	 * @param msg error message
+	 */
+	@ChatPrint
+	void chatLogError(String msg);
+	/**
+	 * Send info level message to the chat log
+	 * @param msg info message
+	 */
+	@ChatPrint
+	void chatLogInfo(String msg);
+
+	public static @interface MovePlayerStart {}
+	public static @interface MovePlayerStop {}
+	public static @interface PlayerAttack {}
+	public static @interface ChangePlayerStatus {}
+	public static @interface BuildBlocks {}
+	public static @interface ChatPrint {}
+	public static @interface CommandAccess {}
+//	public static @interface HelperUtils {}
 }

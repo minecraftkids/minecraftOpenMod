@@ -73,8 +73,7 @@ public class BuildBooleanArray extends CustomModCommandBase {
 		if (maze[cx][cz]) {
 			gameControl.playerSwingItem();
 			for(int i=0;i<height;i++){
-			gameControl.sendBlockPlacementPacket(cBP.getX(), cBP.getY()-1+i, cBP.getZ(), 
-					1, 0, 0, 0);}
+			gameControl.sendBlockPlacementPacket(cBP.getX(), cBP.getY()-1+i, cBP.getZ(), 1);}
 			System.out.println(cBP);
 		} else {
 			cBP = null;

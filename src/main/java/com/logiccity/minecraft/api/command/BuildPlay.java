@@ -156,7 +156,7 @@ public class BuildPlay extends CustomModCommandBase {
 //		System.out.println("---bp:" + bp);
 //		System.out.println("---player:" + player.posX + "," + player.posY + "," + player.posZ);
 		gameControl.sendBlockPlacementPacket(currentRec.blockPos.x, currentRec.blockPos.y, currentRec.blockPos.z, 
-				currentRec.placeDir, currentRec.offset.x, currentRec.offset.y, currentRec.offset.z);
+				currentRec.placeDir);
 		stepAttempted = true;
 		resetMillis();
 	}
