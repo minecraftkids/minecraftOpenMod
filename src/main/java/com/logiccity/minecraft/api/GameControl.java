@@ -196,6 +196,12 @@ public interface GameControl {
 	 */
 	@ChatPrint
 	void chatLogInfo(String msg);
+	/**
+	 * Send raw log to chat
+	 * @param msg message
+	 */
+	@ChatPrint
+	void chatLogRaw(String msg);
 
 	public static @interface MovePlayerStart {}
 	public static @interface MovePlayerStop {}
