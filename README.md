@@ -14,11 +14,12 @@ A modified Minecraft Java client that exposes a clean and simple interface to li
 ## To learn how to develop a custom command
 
 ### With Blockly
-Please see [Blockly tutorial](wiki/Blockly-Tutorial)
+Please see [Blockly tutorial](../../wiki/Blockly-Tutorial).
 
 ### With Java
-Please see [Java tutorial](wiki/Java-Tutorial) for basics. 
+Please see [Java tutorial](../../wiki/Java-Tutorial). 
 
+#### Java Quick Start
 Study the existing sample commands. Each command is implemented by a class in com.logiccity.minecraft.api.command package. It must implement either [CommandInterface](http://minecraftkids.github.io/minecraftOpenMod/com/logiccity/minecraft/api/CommandInterface.html) or [ModCommandInterface](http://minecraftkids.github.io/minecraftOpenMod/com/logiccity/minecraft/api/ModCommandInterface.html). The main interfaces to Minecraft code are [GameInfo](http://minecraftkids.github.io/minecraftOpenMod/com/logiccity/minecraft/api/GameInfo.html) and [GameControl](http://minecraftkids.github.io/minecraftOpenMod/com/logiccity/minecraft/api/GameControl.html)
 
 After implementing your own command, please see [Java tutorial](wiki/Java-Tutorial) on how to load it into the game. 
