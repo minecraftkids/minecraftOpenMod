@@ -133,6 +133,13 @@ public interface GameInfo {
 	@PlayerStatus
 	List<String> getClosestEntityNames(int count);
 	/**
+	 * Get the names of other players that are closest to the player
+	 * @param count the number of names to return 
+	 * @return list of names
+	 */
+	@PlayerStatus
+	List<String> getClosestPlayerNames(int count);
+	/**
 	 * Get player mouse over block pos
 	 * @return block pos
 	 */
