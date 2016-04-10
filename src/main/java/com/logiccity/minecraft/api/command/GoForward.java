@@ -5,7 +5,7 @@ import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 public class GoForward extends CustomModCommandBase {
 
 	private GoForward() {
-		super("goF", 1);
+		super("goFwd", 1);
 	}
 
 	double dist , startX, startY, startZ;
