@@ -4,7 +4,7 @@ A modified Minecraft Java client that exposes a clean and simple interface to li
 
 ## Quick start
 
-* Download 1.8.8.mod.zip on the [release page](https://github.com/minecraftkids/minecraftOpenMod/releases)
+* Download 1.8.8.mod.zip on the [release page](../../releases)
 * Unzip to the Minecraft's versions directory. On Windows OS it is at: %appData%/.minecraft/versions
 * Launch Minecraft and create a profile using version 1.8.8.mod, and start the game with the profile.
 * Type "/." and then the "Tab" key to see a list of all sample commands. A command is to performance a task for the player. For example type "/.buildMaze 5 5 1" in the chat will build a random maze with supplied dimension.
