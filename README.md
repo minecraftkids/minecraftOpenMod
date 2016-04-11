@@ -19,26 +19,26 @@ A command is to performance a task for the player. For example type "/.buildMaze
 * Type "//" and then the "Tab" key to see a list of all sample mods:
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/mcMods.JPG)
 Each Mod name is follow by a shortcut key in braces. A mod can also be toggled on or off by press Ctrl+shortcut key. A mod is to change the capability/state of the player. For example the "//xray(X)" will allow users to see through blocks. You can type "//xray" in chat or use Ctrl-x to enable or disable it. To change the short-cut key "x", after entered "//xray(X)" on chat line, type Ctrl-[new key]. The current list of mods:
-** Ctr-1: NoWeb
-** Ctr-B: Fullbright
-** Ctr-F: Flight
-** Ctr-G: NameTags
-** Ctr-H: AntiMac
-** Ctr-I: Tracer
-** Ctr-J: BaseFinder
-** Ctr-K: AutoAttack
-** Ctr-L: NoFall
-** Ctr-LSHIFT: Sneak
-** Ctr-M: AntiAFK
-** Ctr-N: Critical
-** Ctr-P: ChestESP
-** Ctr-R: KillAura
-** Ctr-S: AutoSprint
-** Ctr-U: Freecam
-** Ctr-V: ProphuntEspMod
-** Ctr-X: Xray
-** Ctr-Y: AutoBow
-** Ctr-Z: AntiKB
+    * Ctr-1: NoWeb
+    * Ctr-B: Fullbright
+    * Ctr-F: Flight
+    * Ctr-G: NameTags
+    * Ctr-H: AntiMac
+    * Ctr-I: Tracer
+    * Ctr-J: BaseFinder
+    * Ctr-K: AutoAttack
+    * Ctr-L: NoFall
+    * Ctr-LSHIFT: Sneak
+    * Ctr-M: AntiAFK
+    * Ctr-N: Critical
+    * Ctr-P: ChestESP
+    * Ctr-R: KillAura
+    * Ctr-S: AutoSprint
+    * Ctr-U: Freecam
+    * Ctr-V: ProphuntEspMod
+    * Ctr-X: Xray
+    * Ctr-Y: AutoBow
+    * Ctr-Z: AntiKB
 
 * Type "/-" in chat allows a command to receive additional inputs. For example, "/.attack" in chat will lists five closest living entities on the chat window. You can chose the one by typing in chat "/-" follow by a number between 1 and 5. Once selected the player will attack the entity until it was killed
 
