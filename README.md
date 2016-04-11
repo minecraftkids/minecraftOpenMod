@@ -4,7 +4,7 @@ A modified Minecraft Java client that exposes a clean and simple interface to li
 
 ## Installation
 * Install the latest version of [JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). This is only required for loading custom Java commands
-* Download 1.8.8.mod.zip on the [release page](../releases)
+* Download 1.8.8.mod.zip on the [release page](https://github.com/minecraftkids/minecraftOpenMod/releases)
 * Unzip to the Minecraft's versions directory. On Windows OS it is at: %appData%/.minecraft/versions
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/mcInstall.JPG)
 * Launch Minecraft and create a profile using version 1.8.8.mod. For loading Java commands, please make sure to point the Java Executable to the installed JDK javaw(.exe):
@@ -45,7 +45,11 @@ Each Mod name is follow by a shortcut key in braces. A mod can also be toggled o
 ## To learn how to develop a custom command
 
 ### With Blockly
-Please see [Blockly tutorial](../../wiki/Blockly-Tutorial).
+Please see [Blockly tutorial](https://github.com/minecraftkids/minecraftOpenMod/wiki/Blockly-Tutorial).
 
 ### With Java
-Please see [Java tutorial](../../wiki/Java-Tutorial). 
+Please see [Java tutorial](https://github.com/minecraftkids/minecraftOpenMod/wiki/Java-Tutorial). 
+
+## Contributing
+Please help us improve by submitting [issues](https://github.com/minecraftkids/minecraftOpenMod/issues) or open [pull request](https://github.com/minecraftkids/minecraftOpenMod/pulls).
+
