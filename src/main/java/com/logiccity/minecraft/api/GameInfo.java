@@ -164,6 +164,14 @@ public interface GameInfo {
 	@C_CommandAccess
 	boolean isCommandRunning(String name);
 	/**
+	 * Check if any command is running
+	 * @param name command name to be excluded from checking
+	 * @return true if any command is running
+	 */
+	@C_CommandAccess
+	boolean isAnyCommandRunning(String exclude);
+	
+	/**
 	 * Check if the named mod is enabled 
 	 * @param name mod name
 	 * @return true if enabled
@@ -186,4 +194,6 @@ public interface GameInfo {
 	 */
 //	@I_HelperUtils
 	boolean [][] generateMaze(int columns, int rows);
+	
+	List<String> getEntityClassInfo(String name);
 }

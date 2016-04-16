@@ -5,7 +5,7 @@ import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 public class GoForward extends CustomModCommandBase {
 
 	private GoForward() {
-		super("goFwd", 1);
+		super("goF", 1);
 	}
 
 	double dist , startX, startY, startZ;
@@ -28,5 +28,13 @@ public class GoForward extends CustomModCommandBase {
 		}
 		gameControl.releaseForwardKey();
 		return true;
+	}
+	
+	@Override
+	public void cleanupCmd() {
+		startX = gameInfo.getPlayerPosX();
+		startY = gameInfo.getPlayerPosY();
+		startZ = gameInfo.getPlayerPosZ();
+		System.out.println("===after---x=" + startX + ", y=" + startY + ", z=" + startZ);
 	}
 }
