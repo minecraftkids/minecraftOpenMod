@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.logiccity.minecraft.api.impl.BuildBooleanArray;
-import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 
 public class BuildLetters extends BuildBooleanArray {
 	private static final Map<Character, boolean[][]> map = new HashMap<Character, boolean[][]>();

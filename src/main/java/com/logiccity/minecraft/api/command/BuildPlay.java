@@ -1,16 +1,10 @@
 package com.logiccity.minecraft.api.command;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.util.ArrayList;
 
 import com.logiccity.minecraft.api.BlockPos;
 import com.logiccity.minecraft.api.BuildStepRecord;
-import com.logiccity.minecraft.api.command.GoToCmd;
-import com.logiccity.minecraft.api.command.Turn;
 import com.logiccity.minecraft.api.impl.CustomModCommandBase;
-import com.logiccity.minecraft.api.util.MathUtils;
 
 public class BuildPlay extends CustomModCommandBase {
 
@@ -50,10 +44,10 @@ public class BuildPlay extends CustomModCommandBase {
 						dz = currTarget.getZ() - (int) Math.floor(gameInfo.getPlayerPosZ());
 				if (dx != 0 || dz != 0) {
 					if (Math.abs(dx) + Math.abs(dz) < 2.9) {
-						GoToCmd.movePlayerX(dx < 0, yawI);
-						GoToCmd.movePlayerZ(dz < 0, yawI);						
+						GoToCmd.movePlayerX(gameControl, dx < 0, yawI);
+						GoToCmd.movePlayerZ(gameControl, dz < 0, yawI);						
 					} else {
-						GoToCmd.resetControls();
+						GoToCmd.resetControls(gameControl);
 					}
 					if (hasMillisPassed(200)) {
 						buildRecordedStep();
@@ -65,7 +59,7 @@ public class BuildPlay extends CustomModCommandBase {
 				}
 			}
 			stepAttempted = false;
-			GoToCmd.resetControls();
+			GoToCmd.resetControls(gameControl);
 		}
 		if (shouldJumpBuild) {
 			gameControl.pressJumpKey();
@@ -123,7 +117,7 @@ public class BuildPlay extends CustomModCommandBase {
 			idx ++;
 			return false;
 		} else {
-			GoToCmd.resetControls();
+			GoToCmd.resetControls(gameControl);
 			return true;
 		}
 	}

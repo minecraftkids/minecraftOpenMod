@@ -4,24 +4,25 @@ import java.util.ArrayList;
 
 import com.logiccity.minecraft.api.BlockPos;
 import com.logiccity.minecraft.api.GameInfo;
-import com.logiccity.minecraft.api.impl.ApiCommandBase;
 
 public class PathPoint {
 	private BlockPos pos;
 	private PathPoint previous;
 	private int priority;
 	private int movementCost;
+	private GameInfo gameInfo;
 
 	public PathPoint(BlockPos pos, PathPoint previous, int movementCost,
-			int priority) {
+			int priority, GameInfo gi) {
 		this.pos = pos;
 		this.previous = previous;
 		this.movementCost = movementCost;
 		this.priority = priority;
+		gameInfo = gi;
 	}
 
 	public ArrayList<BlockPos> getNeighbors() {
-		BlockPos playerPos = ApiCommandBase.getGameInfo().getPlayerBlockPos();
+		BlockPos playerPos = gameInfo.getPlayerBlockPos();
 		ArrayList<BlockPos> neighbors = new ArrayList<BlockPos>();
 		neighbors.add(pos.add(0, 0, -1));// north
 		neighbors.add(pos.add(0, 0, 1));// south
@@ -31,27 +32,26 @@ public class PathPoint {
 		neighbors.add(pos.add(-1, 0, 1));
 		neighbors.add(pos.add(1, 0, 1));
 		neighbors.add(pos.add(1, 0, -1));
-		GameInfo gi = ApiCommandBase.getGameInfo();
 		for (int i = neighbors.size() - 1; i > -1; i--) {
 			BlockPos neighbor = neighbors.get(i);
-			if (!PathUtils.isSafe(neighbor)
-					|| !PathUtils.isSafe(neighbor.add(0, 1, 0))
+			if (!PathUtils.isSafe(neighbor, gameInfo)
+					|| !PathUtils.isSafe(neighbor.add(0, 1, 0), gameInfo)
 					|| Math.abs(playerPos.getX() - neighbor.getX()) > 256
 					|| Math.abs(playerPos.getZ() - neighbor.getZ()) > 256)
 				neighbors.remove(i);
-			else if (!PathUtils.isFlyable(neighbor))
-				if (!PathUtils.isFallable(neighbor))
+			else if (!PathUtils.isFlyable(neighbor, gameInfo))
+				if (!PathUtils.isFallable(neighbor, gameInfo))
 					neighbors.remove(i);
-				else if (!gi.isSolid(pos.add(0, -1, 0)))
-					if (!gi.isSolid(neighbor.add(0, -1, 0)))
+				else if (!gameInfo.isSolid(pos.add(0, -1, 0)))
+					if (!gameInfo.isSolid(neighbor.add(0, -1, 0)))
 						neighbors.remove(i);
 					else if (previous == null
-							|| gi.isSolid(previous.getPos().add(0, -1, 0))
+							|| gameInfo.isSolid(previous.getPos().add(0, -1, 0))
 							&& previous.getPos().getY() >= pos.getY())
 						neighbors.remove(i);
 		}
 		neighbors.add(pos.add(0, -1, 0));// down
-		if (PathUtils.isFlyable(pos) || PathUtils.isClimbable(pos))
+		if (PathUtils.isFlyable(pos, gameInfo) || PathUtils.isClimbable(pos, gameInfo))
 			neighbors.add(pos.add(0, 1, 0));// up
 		return neighbors;
 	}

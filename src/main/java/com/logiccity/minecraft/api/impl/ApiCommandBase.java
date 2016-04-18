@@ -5,8 +5,8 @@ import com.logiccity.minecraft.api.GameInfo;
 
 public abstract class ApiCommandBase {
 	private long lastMS;
-	protected static GameControl gameControl = null;
-	protected static GameInfo gameInfo = null;
+	protected GameControl gameControl = null;
+	protected GameInfo gameInfo = null;
 	private int[] argNums;
 	private String name;
 	
@@ -31,11 +31,11 @@ public abstract class ApiCommandBase {
 		this.gameInfo = gameInfo;
 	}
 	
-	public static GameControl getGameControl() {
+	public GameControl getGameControl() {
 		return gameControl;
 	}
 	
-	public static GameInfo getGameInfo() {
+	public GameInfo getGameInfo() {
 		return gameInfo;
 	}
 	

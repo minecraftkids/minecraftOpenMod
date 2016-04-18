@@ -155,7 +155,7 @@ public interface GameInfo {
 	 */
 	@I_PlayerStatus
 	boolean isCreativeMode();
-		
+
 	/**
 	 * Check if the named command is running
 	 * @param name command name
@@ -164,13 +164,11 @@ public interface GameInfo {
 	@C_CommandAccess
 	boolean isCommandRunning(String name);
 	/**
-	 * Check if any command is running
-	 * @param name command name to be excluded from checking
-	 * @return true if any command is running
+	 * Check if any other command is running
+	 * @param excludes comma separated command names to be excluded from checking
+	 * @return true if any other command is running
 	 */
-	@C_CommandAccess
-	boolean isAnyCommandRunning(String exclude);
-	
+	boolean isAnyCommandRunning(String excludes);
 	/**
 	 * Check if the named mod is enabled 
 	 * @param name mod name

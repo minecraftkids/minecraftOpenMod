@@ -1,7 +1,5 @@
 package com.logiccity.minecraft.api.command;
 
-import java.util.List;
-
 import com.logiccity.minecraft.api.BlockPos;
 import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 

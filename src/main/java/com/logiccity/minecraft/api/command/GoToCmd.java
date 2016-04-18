@@ -3,7 +3,7 @@ package com.logiccity.minecraft.api.command;
 import java.util.ArrayList;
 
 import com.logiccity.minecraft.api.BlockPos;
-import com.logiccity.minecraft.api.command.Turn;
+import com.logiccity.minecraft.api.GameControl;
 import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 import com.logiccity.minecraft.api.util.PathFinder;
 import com.logiccity.minecraft.api.util.PathUtils;
@@ -32,8 +32,8 @@ public class GoToCmd extends CustomModCommandBase {
 		}
 		index = 0;
 		BlockPos goal = new BlockPos(pos[0], pos[1], pos[2]);
-		if (PathUtils.isSafe(goal)) {
-			PathFinder pathFinder = new PathFinder(goal);
+		if (PathUtils.isSafe(goal, gameInfo)) {
+			PathFinder pathFinder = new PathFinder(gameInfo, goal);
 			if (pathFinder.find()) {
 				path = pathFinder.formatPath();
 				System.out.println("found path: " + path);
@@ -41,7 +41,7 @@ public class GoToCmd extends CustomModCommandBase {
 					yawI = Turn.getAxisesYaw(gameInfo.getRotationYaw());
 					gameControl.executeCommand("turn", new String [] { String.valueOf(yawI) });
 					
-					resetControls();
+					resetControls(gameControl);
 					setBlockCenterFlags();
 				}
 				return;
@@ -70,16 +70,16 @@ public class GoToCmd extends CustomModCommandBase {
 	public void cleanupCmd()
 	{
 		path = null;
-		resetControls();
+		resetControls(gameControl);
 	}
 
-	public static final void resetControls() {
-		gameControl.releaseForwardKey();
-		gameControl.releaseBackKey();
-		gameControl.releaseRightKey();
-		gameControl.releaseLeftKey();
-		gameControl.releaseJumpKey();
-		gameControl.releaseSneakKey();
+	public static final void resetControls(GameControl gc) {
+		gc.releaseForwardKey();
+		gc.releaseBackKey();
+		gc.releaseRightKey();
+		gc.releaseLeftKey();
+		gc.releaseJumpKey();
+		gc.releaseSneakKey();
 	}
 	
 	@Override
@@ -91,7 +91,7 @@ public class GoToCmd extends CustomModCommandBase {
 		if (gameInfo.isPlayerAttemptingMove() && (! gameInfo.isPlayerChaningLocation())) {
 			setBlockCenterFlags();
 		}
-		resetControls();
+		resetControls(gameControl);
 		if (gameInfo.isCommandRunning("turn")) {
 			return false;
 		}
@@ -108,14 +108,14 @@ public class GoToCmd extends CustomModCommandBase {
 
 			if(blockCenterFlags.px) {
 				if (dxB > 0) {
-					movePlayerX(true, yawI);
+					movePlayerX(gameControl, true, yawI);
 				} else {
 					gameControl.clearPlayerMotionXZ();
 					blockCenterFlags.px = false;
 				}
 			} else if (blockCenterFlags.nx) { 
 				if(dxB < 0) {
-					movePlayerX(false, yawI);
+					movePlayerX(gameControl, false, yawI);
 				} else {
 					gameControl.clearPlayerMotionXZ();
 					blockCenterFlags.nx = false;
@@ -123,14 +123,14 @@ public class GoToCmd extends CustomModCommandBase {
 			}
 			if (blockCenterFlags.pz) { 
 				if (dzB > 0) {
-					movePlayerZ(true, yawI);
+					movePlayerZ(gameControl, true, yawI);
 				} else {
 					gameControl.clearPlayerMotionXZ();
 					blockCenterFlags.pz = false;
 				}
 			} else if (blockCenterFlags.nz) { 
 				if (dzB < 0) {
-					movePlayerZ(false, yawI);
+					movePlayerZ(gameControl, false, yawI);
 				} else {
 					gameControl.clearPlayerMotionXZ();
 					blockCenterFlags.nz = false;
@@ -164,18 +164,18 @@ public class GoToCmd extends CustomModCommandBase {
 		}
 //		jumpOverObstacle(currentPos, dx, dz);
 		if(dx > 0) {
-			movePlayerX(true, yawI);
+			movePlayerX(gameControl, true, yawI);
 		} else if (dx < 0) {
-			movePlayerX(false, yawI);
+			movePlayerX(gameControl, false, yawI);
 		}
 		if (dz > 0) {
-			movePlayerZ(true, yawI);
+			movePlayerZ(gameControl, true, yawI);
 		} else if (dz < 0) {
-			movePlayerZ(false, yawI);
+			movePlayerZ(gameControl, false, yawI);
 		}
 		if (dx == 0 && dz == 0) {
 			index++;
-			resetControls();
+			resetControls(gameControl);
 			if(index >= path.size()) {
 				return true;
 			}
@@ -197,58 +197,58 @@ public class GoToCmd extends CustomModCommandBase {
 		}
 	}
 	
-	public static void movePlayerX(boolean pos, int yawI) {
+	public static void movePlayerX(GameControl gc, boolean pos, int yawI) {
 		if (yawI == 0) {
 			if (pos) {
-				gameControl.pressLeftKey();
+				gc.pressLeftKey();
 			} else {
-				gameControl.pressRightKey();
+				gc.pressRightKey();
 			}
 		} else if (yawI == 90) {
 			if (pos) {
-				gameControl.pressBackKey();
+				gc.pressBackKey();
 			} else {
-				gameControl.pressForwardKey();
+				gc.pressForwardKey();
 			}
 		} else if (yawI == -90) {
 			if (pos) {
-				gameControl.pressForwardKey();
+				gc.pressForwardKey();
 			} else {
-				gameControl.pressBackKey();
+				gc.pressBackKey();
 			}
 		} else {
 			if (pos) {
-				gameControl.pressRightKey();
+				gc.pressRightKey();
 			} else {
-				gameControl.pressLeftKey();
+				gc.pressLeftKey();
 			}
 		}
 	}
 	
-	public static void movePlayerZ(boolean pos, int yawI) {
+	public static void movePlayerZ(GameControl gc, boolean pos, int yawI) {
 		if (yawI == 0) {
 			if (pos) {
-				gameControl.pressForwardKey();
+				gc.pressForwardKey();
 			} else {
-				gameControl.pressBackKey();
+				gc.pressBackKey();
 			}
 		} else if (yawI == 90) {
 			if (pos) {
-				gameControl.pressLeftKey();
+				gc.pressLeftKey();
 			} else {
-				gameControl.pressRightKey();
+				gc.pressRightKey();
 			}
 		} else if (yawI == -90) {
 			if (pos) {
-				gameControl.pressRightKey();
+				gc.pressRightKey();
 			} else {
-				gameControl.pressLeftKey();
+				gc.pressLeftKey();
 			}
 		} else {
 			if (pos) {
-				gameControl.pressBackKey();
+				gc.pressBackKey();
 			} else {
-				gameControl.pressForwardKey();
+				gc.pressForwardKey();
 			}
 		}
 	}

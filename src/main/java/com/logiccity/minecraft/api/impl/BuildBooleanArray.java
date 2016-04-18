@@ -74,7 +74,7 @@ public class BuildBooleanArray extends CustomModCommandBase {
 			gameControl.playerSwingItem();
 			for(int i=0;i<height;i++){
 			gameControl.sendBlockPlacementPacket(cBP.getX(), cBP.getY()-1+i, cBP.getZ(), 1);}
-			System.out.println(cBP);
+//			System.out.println(cBP);
 		} else {
 			cBP = null;
 		}

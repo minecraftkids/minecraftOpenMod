@@ -7,20 +7,17 @@ import java.util.HashMap;
 import java.util.PriorityQueue;
 
 import com.logiccity.minecraft.api.BlockPos;
-import com.logiccity.minecraft.api.impl.ApiCommandBase;
+import com.logiccity.minecraft.api.GameInfo;
 
 public class PathFinder {
 	private BlockPos goal;
 	private PriorityQueue<PathPoint> queue;
 	private HashMap<BlockPos, PathPoint> processed = new HashMap<BlockPos, PathPoint>();
 	private PathPoint lastPoint;
-
-	public PathFinder(BlockPos goal) {
-		this(ApiCommandBase.getGameInfo().getPlayerBlockPos(), goal);
-	}
-
-	public PathFinder(BlockPos start, BlockPos goal) {
+	private GameInfo gameInfo;
+	public PathFinder(GameInfo gi, BlockPos goal) {
 		this.goal = goal;
+		gameInfo =gi;
 		queue = new PriorityQueue<PathPoint>(new Comparator<PathPoint>() {
 			@Override
 			public int compare(PathPoint o1, PathPoint o2) {
@@ -38,7 +35,7 @@ public class PathFinder {
 					return 0;
 			}
 		});
-		addPoint(start, null, 0, 0);
+		addPoint(gameInfo.getPlayerBlockPos(), null, 0, 0);
 	}
 
 	public boolean find() {
@@ -57,9 +54,9 @@ public class PathFinder {
 				return false;
 			}
 			for (BlockPos next : lastPoint.getNeighbors()) {
-				if (!PathUtils.isSafe(next))
+				if (!PathUtils.isSafe(next, gameInfo))
 					continue;
-				int nextCost = PathUtils.getCost(next);
+				int nextCost = PathUtils.getCost(next, gameInfo);
 				int newCost = lastPoint.getMovementCost() + nextCost;
 				if (!processed.containsKey(next)
 						|| processed.get(next).getMovementCost() > newCost)
@@ -73,7 +70,7 @@ public class PathFinder {
 
 	private void addPoint(BlockPos pos, PathPoint previous, int movementCost,
 			int priority) {
-		queue.add(new PathPoint(pos, previous, movementCost, priority));
+		queue.add(new PathPoint(pos, previous, movementCost, priority, gameInfo));
 	}
 
 	private int getDistance(BlockPos a, BlockPos b) {

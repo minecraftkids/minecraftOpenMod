@@ -1,9 +1,5 @@
 package com.logiccity.minecraft.api;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
 public class BuildStepRecord {
 
 	public PosInt blockPos;
