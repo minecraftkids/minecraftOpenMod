@@ -22,7 +22,6 @@ public class PreprocessMD {
 			while ((pos = cnt.indexOf("#include<<")) != -1) {
 				result += cnt.substring(0, pos);
 				int ePos = cnt.indexOf(">>", pos);
-				System.out.println("pos:" + pos + "; ePos:" + ePos + "; cnt:" + cnt);
 				result += new String(Files.readAllBytes(
 						new File(file.getParent(), cnt.substring(pos + 10, ePos)).toPath()));
 				cnt = cnt.substring(ePos + 2);
