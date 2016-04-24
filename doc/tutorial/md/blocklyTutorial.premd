@@ -1,5 +1,5 @@
 ### Install and start the modified Minecraft client
-#include<<installationSteps.md>>
+<<include[installationSteps.md]>>
 
 ### Create a simple command in source code editor
 * If Minecraft client is running, use Esc key to pause the game:

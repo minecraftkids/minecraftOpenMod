@@ -1,5 +1,5 @@
 ### Install and start the modified Minecraft client
-#include<<installationSteps.md>>
+<<include[installationSteps.md]>>
 
 ### Setup IDE
 You can use any Java IDE for this project. There is no third party dependencies out side of JRE. 

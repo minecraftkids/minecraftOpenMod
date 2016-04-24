@@ -19,12 +19,12 @@ public class PreprocessMD {
 		})) {
 			String cnt = new String(Files.readAllBytes(file.toPath())), result = "";
 			int pos;
-			while ((pos = cnt.indexOf("#include<<")) != -1) {
+			while ((pos = cnt.indexOf("<<include[")) != -1) {
 				result += cnt.substring(0, pos);
-				int ePos = cnt.indexOf(">>", pos);
+				int ePos = cnt.indexOf("]>>", pos);
 				result += new String(Files.readAllBytes(
 						new File(file.getParent(), cnt.substring(pos + 10, ePos)).toPath()));
-				cnt = cnt.substring(ePos + 2);
+				cnt = cnt.substring(ePos + 3);
 			}
 			result += cnt;
 			Files.write(new File(file.getParent(), file.getName().replace(".premd", ".md")).toPath(), 

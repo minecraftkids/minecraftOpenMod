@@ -2,7 +2,18 @@
 
 A modified Minecraft client that exposes a clean and simple interface to literally everyone. For someone without any programming experience, the goal is to teach Minecraft modding with visual programming tool from Google (Blockly) to quickly experience the joy of coding. For experienced Java developers, it removes the need of decompiling, deobfuscating, and studying Minecraft code. By using simple interfaces and referencing sample command implementations, one can start modding right away.
 
-## Installation
+Table of Contents
+=================
+
+  * [minecraftOpenMod](#minecraftopenmod)
+  * [Installation](#installation)
+  * [Using the modified Minecraft client](#using-the-modified-minecraft-client)
+  * [To learn how to develop a custom command](#to-learn-how-to-develop-a-custom-command)
+    * [With Blockly](#with-blockly)
+    * [With Java](#with-java)
+  * [Contributing](#contributing)
+
+# Installation
 * Download 1.8.8.mod.zip on the [release page](https://github.com/minecraftkids/minecraftOpenMod/releases)
 * Unzip to the Minecraft's versions directory. On Windows OS it is at: %appData%/.minecraft/versions
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/mcInstall.JPG)
@@ -12,7 +23,7 @@ A modified Minecraft client that exposes a clean and simple interface to literal
 * start the game with the profile:
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/mcLaunchMod.JPG)
 
-## Using the modified Minecraft client
+# Using the modified Minecraft client
 * Type "/." and then the "Tab" key to see a list of all sample commands:
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/mcCommands.JPG)
 A command is to performance a task for the player. For example type "/.buildMaze 5 5 1" in the chat will build a random maze with supplied dimension.
@@ -42,14 +53,14 @@ Each Mod name is follow by a shortcut key in braces. A mod can also be toggled o
 
 * Type "/-" in chat allows a command to receive additional inputs. For example, "/.attack" in chat will lists five closest living entities on the chat window. You can chose the one by typing in chat "/-" follow by a number between 1 and 5. Once selected the player will attack the entity until it was killed
 
-## To learn how to develop a custom command
+# To learn how to develop a custom command
 
-### With Blockly
-Please see [Blockly tutorial](https://github.com/minecraftkids/minecraftOpenMod/wiki/Blockly-Tutorial).
+## With Blockly
+Please see [Blockly tutorial](https://github.com/minecraftkids/minecraftOpenMod/blob/master/doc/tutorial/md/blocklyTutorial.md).
 
-### With Java
-Please see [Java tutorial](https://github.com/minecraftkids/minecraftOpenMod/wiki/Java-Tutorial). 
+## With Java
+Please see [Java tutorial](https://github.com/minecraftkids/minecraftOpenMod/blob/master/doc/tutorial/md/javaTutorial.md). 
 
-## Contributing
+# Contributing
 Please help us improve by submitting [issues](https://github.com/minecraftkids/minecraftOpenMod/issues) or open [pull request](https://github.com/minecraftkids/minecraftOpenMod/pulls).
 
