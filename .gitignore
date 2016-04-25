@@ -5,4 +5,4 @@
 /.settings
 /build/
 /tableOfContents.sh
-*.premd.toc
+*.pre.md.toc

@@ -32,7 +32,7 @@ public class PreprocessMD {
 				cnt = cnt.substring(ePos + 3);
 			}
 			result += cnt;
-			Files.write(new File(file.getParent(), file.getName().replace(".premd", ".md")).toPath(), 
+			Files.write(new File(file.getParent(), file.getName().replace(".pre.md", ".md")).toPath(), 
 					result.getBytes());
 		}
 	}
@@ -40,7 +40,7 @@ public class PreprocessMD {
 		return findFilesDeep(new File("."), new FileFilter() {
 			@Override
 			public boolean accept(File file) {
-				return file.isDirectory() || file.getName().toLowerCase().endsWith(".premd");
+				return file.isDirectory() || file.getName().toLowerCase().endsWith(".pre.md");
 			}
 		});
 	}
