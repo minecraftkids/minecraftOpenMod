@@ -25,7 +25,7 @@
 
 # A more complex command that performs actions in each update tick 
 
-The previous command executes a single action once. A more complex example would be to perform actions and check on status until a certain goal is achieved. Minecraft's game loop normally runs at a fixed rate of 20 ticks per second. The "Override"->"do in each update tick" and "Override"->"do in each render tick" blocks can be used to insert additional actions to change game status or UI rendering:
+The previous command executes a single action once. A more complex example would be to perform actions and check on status until a certain goal is achieved. Minecraft's game loop normally runs at a fixed rate of 20 ticks per second. The "Override"->"do in each update tick" and "Override"->"do in each render tick" blocks can be used to insert additional actions to change game status or UI rendering:  
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/blockyTickOverrides.JPG)
 
 The key to these two blocks is that their actions will be executed many times per second. Both of them return a Boolean value. A false value means the command actions will continue to be invoked in the following tick. A true value signal the goal of this command is achieved and it will stop the command. As an example of using the "do in each render tick" block, the following command will cause the player to go forward until it is blocked:
