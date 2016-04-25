@@ -1,3 +1,10 @@
+Table of Contents
+=================
+
+      * [Install and start the modified Minecraft client](#install-and-start-the-modified-minecraft-client)
+      * [Create a simple command in source code editor](#create-a-simple-command-in-source-code-editor)
+      * [A more complex command that performs actions in each update tick](#a-more-complex-command-that-performs-actions-in-each-update-tick)
+
 ### Install and start the modified Minecraft client
 * Download 1.8.8.mod.zip on the [release page](https://github.com/minecraftkids/minecraftOpenMod/releases)
 * Unzip to the Minecraft's versions directory. On Windows OS it is at: %appData%/.minecraft/versions

@@ -2,6 +2,8 @@
 
 A modified Minecraft client that exposes a clean and simple interface to literally everyone. For someone without any programming experience, the goal is to teach Minecraft modding with visual programming tool from Google (Blockly) to quickly experience the joy of coding. For experienced Java developers, it removes the need of decompiling, deobfuscating, and studying Minecraft code. By using simple interfaces and referencing sample command implementations, one can start modding right away.
 
+<<include[_TOC_]>>
+
 # Installation
 <<include[doc/tutorial/md/installationSteps.md]>>
 

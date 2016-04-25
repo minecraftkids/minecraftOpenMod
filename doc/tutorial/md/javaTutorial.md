@@ -1,3 +1,11 @@
+Table of Contents
+=================
+
+      * [Install and start the modified Minecraft client](#install-and-start-the-modified-minecraft-client)
+      * [Setup IDE](#setup-ide)
+      * [Create and install your own command](#create-and-install-your-own-command)
+      * [Command super classes CustomCommandBase vs <code>CustomModCommandBase</code> ](#command-super-classes-customcommandbase-vs-custommodcommandbase)
+
 ### Install and start the modified Minecraft client
 * Download 1.8.8.mod.zip on the [release page](https://github.com/minecraftkids/minecraftOpenMod/releases)
 * Unzip to the Minecraft's versions directory. On Windows OS it is at: %appData%/.minecraft/versions
