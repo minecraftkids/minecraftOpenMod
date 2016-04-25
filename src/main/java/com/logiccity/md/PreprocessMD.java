@@ -10,20 +10,25 @@ import java.util.List;
 
 public class PreprocessMD {
 	public static void main(String [] argv) throws IOException {
-		File root = new File(".");
-		for (File file : findFilesDeep(root, new FileFilter() {
-			@Override
-			public boolean accept(File file) {
-				return file.isDirectory() || file.getName().toLowerCase().endsWith(".premd");
-			}
-		})) {
+		for (File file : findAllPremdFiles()) {
 			String cnt = new String(Files.readAllBytes(file.toPath())), result = "";
 			int pos;
 			while ((pos = cnt.indexOf("<<include[")) != -1) {
 				result += cnt.substring(0, pos);
 				int ePos = cnt.indexOf("]>>", pos);
-				result += new String(Files.readAllBytes(
-						new File(file.getParent(), cnt.substring(pos + 10, ePos)).toPath()));
+				String fn = cnt.substring(pos + 10, ePos);
+				if (fn.equals("_TOC_")) {
+					String tocCnt = new String(Files.readAllBytes(
+						new File(file.getParent(), file.getName()+".toc").toPath()));
+					pos = tocCnt.indexOf("Created by [gh-md-toc]");
+					if (pos != -1) {
+						tocCnt = tocCnt.substring(0, pos).trim();
+					}
+					result += tocCnt;
+				} else {
+					result += new String(Files.readAllBytes(
+							new File(file.getParent(), fn).toPath()));
+				}
 				cnt = cnt.substring(ePos + 3);
 			}
 			result += cnt;
@@ -31,7 +36,14 @@ public class PreprocessMD {
 					result.getBytes());
 		}
 	}
-	
+	static List<File> findAllPremdFiles() {
+		return findFilesDeep(new File("."), new FileFilter() {
+			@Override
+			public boolean accept(File file) {
+				return file.isDirectory() || file.getName().toLowerCase().endsWith(".premd");
+			}
+		});
+	}
 	private static List<File> findFilesDeep(File root, FileFilter ff) {
 		List<File> listF = new ArrayList<File>();
 		for (File file : root.listFiles(ff)) {

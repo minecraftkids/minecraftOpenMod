@@ -2,17 +2,6 @@
 
 A modified Minecraft client that exposes a clean and simple interface to literally everyone. For someone without any programming experience, the goal is to teach Minecraft modding with visual programming tool from Google (Blockly) to quickly experience the joy of coding. For experienced Java developers, it removes the need of decompiling, deobfuscating, and studying Minecraft code. By using simple interfaces and referencing sample command implementations, one can start modding right away.
 
-Table of Contents
-=================
-
-  * [minecraftOpenMod](#minecraftopenmod)
-  * [Installation](#installation)
-  * [Using the modified Minecraft client](#using-the-modified-minecraft-client)
-  * [To learn how to develop a custom command](#to-learn-how-to-develop-a-custom-command)
-    * [With Blockly](#with-blockly)
-    * [With Java](#with-java)
-  * [Contributing](#contributing)
-
 # Installation
 <<include[doc/tutorial/md/installationSteps.md]>>
 
