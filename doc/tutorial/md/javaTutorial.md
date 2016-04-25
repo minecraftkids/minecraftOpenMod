@@ -1,12 +1,12 @@
 Table of Contents
 =================
 
-      * [Install and start the modified Minecraft client](#install-and-start-the-modified-minecraft-client)
-      * [Setup IDE](#setup-ide)
-      * [Create and install your own command](#create-and-install-your-own-command)
-      * [Command super classes CustomCommandBase vs <code>CustomModCommandBase</code> ](#command-super-classes-customcommandbase-vs-custommodcommandbase)
+  * [Install and start the modified Minecraft client](#install-and-start-the-modified-minecraft-client)
+  * [Setup IDE](#setup-ide)
+  * [Create and install your own command](#create-and-install-your-own-command)
+  * [Command super classes CustomCommandBase vs <code>CustomModCommandBase</code> ](#command-super-classes-customcommandbase-vs-custommodcommandbase)
 
-### Install and start the modified Minecraft client
+# Install and start the modified Minecraft client
 * Download 1.8.8.mod.zip on the [release page](https://github.com/minecraftkids/minecraftOpenMod/releases)
 * Unzip to the Minecraft's versions directory. On Windows OS it is at: %appData%/.minecraft/versions
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/mcInstall.JPG)
@@ -16,14 +16,14 @@ Table of Contents
 * start the game with the profile:
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/mcLaunchMod.JPG)
 
-### Setup IDE
+# Setup IDE
 You can use any Java IDE for this project. There is no third party dependencies out side of JRE. 
 If you are interested in using the popular [Eclipse](https://eclipse.org/)/[Gradle](http://gradle.org/) setup:
 * [Install Gradle Plugin](https://github.com/eclipse/buildship/blob/master/docs/user/Installation.md)
 * Clone the [current repo](https://github.com/minecraftkids/minecraftOpenMod)
 * Import the cloned repo as a Gradle project
 
-### Create and install your own command
+# Create and install your own command
 * If Minecraft client is running, use Esc key to pause the game:
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/mcPaulsed.jpg)
 * As an example, open the Jump.java class in com.logiccity.minecraft.api.command package. Change `super("jump");` to `super("jumpOnce");` and save the file
@@ -39,7 +39,7 @@ If you are interested in using the popular [Eclipse](https://eclipse.org/)/[Grad
 * You can use "/" and up arrow to repeat the command several times. You will notice each time you run the command, the player jumps once. 
 * Congratulation you completed your first command!
 
-### Command super classes `CustomCommandBase` vs `CustomModCommandBase`
+# Command super classes `CustomCommandBase` vs `CustomModCommandBase`
 
 The "jumpOnce" command extends from class `CustomCommandBase`, it executes a single action once. A more complex example would be to perform actions and check on status until a certain goal is achieved. Minecraft's game loop normally runs at a fixed rate of 20 ticks per second. There are special threads to handle game status update, and UI rendering. To perform action in those threads, a command needs extend from `CustomModCommandBase` and override the methods:
 * `boolean doInUpdateTicThread()`

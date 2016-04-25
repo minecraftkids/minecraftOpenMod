@@ -1,11 +1,11 @@
 Table of Contents
 =================
 
-      * [Install and start the modified Minecraft client](#install-and-start-the-modified-minecraft-client)
-      * [Create a simple command in source code editor](#create-a-simple-command-in-source-code-editor)
-      * [A more complex command that performs actions in each update tick](#a-more-complex-command-that-performs-actions-in-each-update-tick)
+  * [Install and start the modified Minecraft client](#install-and-start-the-modified-minecraft-client)
+  * [Create a simple command in source code editor](#create-a-simple-command-in-source-code-editor)
+  * [A more complex command that performs actions in each update tick](#a-more-complex-command-that-performs-actions-in-each-update-tick)
 
-### Install and start the modified Minecraft client
+# Install and start the modified Minecraft client
 * Download 1.8.8.mod.zip on the [release page](https://github.com/minecraftkids/minecraftOpenMod/releases)
 * Unzip to the Minecraft's versions directory. On Windows OS it is at: %appData%/.minecraft/versions
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/mcInstall.JPG)
@@ -15,7 +15,7 @@ Table of Contents
 * start the game with the profile:
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/mcLaunchMod.JPG)
 
-### Create a simple command in source code editor
+# Create a simple command in source code editor
 * If Minecraft client is running, use Esc key to pause the game:
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/mcPaulsed.jpg)
 * Download sourceEditor.zip on the [release page](../releases)
@@ -35,7 +35,7 @@ Table of Contents
 * You can use "/" and up arrow to repeat the command several times. You will notice each time you run the command, the player jumps once. 
 * Congratulation you completed your first command!
 
-### A more complex command that performs actions in each update tick 
+# A more complex command that performs actions in each update tick 
 
 The previous command executes a single action once. A more complex example would be to perform actions and check on status until a certain goal is achieved. Minecraft's game loop normally runs at a fixed rate of 20 ticks per second. The "Override"->"do in each update tick" and "Override"->"do in each render tick" blocks can be used to insert additional actions to change game status or UI rendering:
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/blockyTickOverrides.JPG)
