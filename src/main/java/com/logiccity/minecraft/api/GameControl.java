@@ -7,6 +7,9 @@ import com.logiccity.minecraft.api.BlocklyCatMarker.C_CommandAccess;
 import com.logiccity.minecraft.api.BlocklyCatMarker.C_MovePlayerStart;
 import com.logiccity.minecraft.api.BlocklyCatMarker.C_MovePlayerStop;
 import com.logiccity.minecraft.api.BlocklyCatMarker.C_PlayerAttack;
+import com.logiccity.minecraft.api.BlocklyCatMarker.I_PlayerLocation;
+import com.logiccity.minecraft.api.BlocklyCatMarker.I_PlayerRotation;
+import com.logiccity.minecraft.api.BlocklyCatMarker.I_PlayerStatus;
 
 /**
  * The interface for controlling the player or game states
@@ -45,7 +48,17 @@ public interface GameControl {
 	 */
 	@C_MovePlayerStart
 	void playerJumpOnce();
-	
+	/**
+	 * Press the sneak key
+	 */
+	@C_MovePlayerStart
+	void pressSneakKey();
+	/**
+	 * Press the sprint key
+	 */
+	@C_MovePlayerStart
+	void pressSprintKey();
+
 	/**
 	 * Release the forward key
 	 */
@@ -76,7 +89,17 @@ public interface GameControl {
 	 */
 	@C_MovePlayerStop
 	void clearPlayerMotionXZ();
-	
+	/**
+	 * Release the sneak key
+	 */
+	@C_MovePlayerStop
+	void releaseSneakKey();
+	/**
+	 * Release the sprint key
+	 */
+	@C_MovePlayerStop
+	void releaseSprintKey();
+
 	/**
 	 * Press the attack key
 	 */
@@ -112,30 +135,20 @@ public interface GameControl {
 	 * Set the player's rotation pitch to a new value
 	 * @param pitch pitch
 	 */
-	@C_ChangePlayerStatus
+	@I_PlayerRotation
 	void setRotationPitch(float pitch);
 	/**
 	 * Set the player's rotation yaw to a new value
 	 * @param yaw yaw
 	 */
-	@C_ChangePlayerStatus
+	@I_PlayerRotation
 	void setRotationYaw(float yaw);
-	/**
-	 * Press the sneak key
-	 */
-	@C_ChangePlayerStatus
-	void pressSneakKey();
-	/**
-	 * Release the sneak key
-	 */
-	@C_ChangePlayerStatus
-	void releaseSneakKey();
 	/**
 	 * Set the players current holding item
 	 * @param index the index of target item
 	 * @return true if the current holding item was changed
 	 */
-	@C_ChangePlayerStatus
+	@I_PlayerStatus
 	boolean setPlayerCurrentItem(int index);
 	/**
 	 * Teleport user to new x,y,z. Single player creative mode only
@@ -143,7 +156,7 @@ public interface GameControl {
 	 * @param y new y location
 	 * @param z new z location
 	 */
-	@C_ChangePlayerStatus
+	@I_PlayerLocation
 	void setPlayerLocation(double x, double y, double z);
 	
 	/**

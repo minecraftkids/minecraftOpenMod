@@ -15,7 +15,7 @@ public class Attack extends CustomModCommandBase {
 	@Override
 	public void initCmd(String [] args) {
 		chosenName = null;
-		closeEntityNames = gameInfo.getClosestEntityNames(CLOSE_CNT);
+		closeEntityNames = gameInfo.getClosestEntityNames(CLOSE_CNT, false);
 		String msg = "Choose target: ";
 		int i = 1;
 		for (String name : closeEntityNames) {

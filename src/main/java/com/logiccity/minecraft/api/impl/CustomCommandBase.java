@@ -6,4 +6,7 @@ public abstract class CustomCommandBase extends ApiCommandBase implements Comman
 	protected CustomCommandBase(String name, int... args) {
 		super(name, args);
 	}
+	protected CustomCommandBase(String name, String keyChar, int... args) {
+		super(name, keyChar, args);
+	}
 }

@@ -81,7 +81,15 @@ public interface GameInfo {
 	 */
 	@I_PlayerRotation
 	float getPreviousRotationPitch();
-	
+
+	/**
+	 * The distance between the projected block that another player is directly facing and the current player
+	 * @param playerName the other player's name
+	 * @return the [yaw, pitch] distances in blocks 
+	 */
+	@I_PlayerRotation
+	float[] lookAtMeDelta(String playerName);
+
 	/**
 	 * Check if the material on a block is solid
 	 * @param pos the block position
@@ -131,18 +139,12 @@ public interface GameInfo {
 	boolean isPlayerChaningLocation();
 	/**
 	 * Get the names of entities that are closest to the player
-	 * @param count the number of entities names to return 
-	 * @return list of names
-	 */
-	@I_PlayerStatus
-	List<String> getClosestEntityNames(int count);
-	/**
-	 * Get the names of other players that are closest to the player
 	 * @param count the number of names to return 
+	 * @param playerOnly if only players are included
 	 * @return list of names
 	 */
 	@I_PlayerStatus
-	List<String> getClosestPlayerNames(int count);
+	List<String> getClosestEntityNames(int count, boolean playerOnly);
 	/**
 	 * Get player mouse over block pos
 	 * @return block pos
@@ -155,6 +157,13 @@ public interface GameInfo {
 	 */
 	@I_PlayerStatus
 	boolean isCreativeMode();
+	/**
+	 * Get the item info that another player is holding
+	 * @param playerName another player's name
+	 * @return item name : item class name
+	 */
+	@I_PlayerStatus
+	String holdingItemTypeName(String playerName);
 
 	/**
 	 * Check if the named command is running
@@ -192,6 +201,4 @@ public interface GameInfo {
 	 */
 //	@I_HelperUtils
 	boolean [][] generateMaze(int columns, int rows);
-	
-	List<String> getEntityClassInfo(String name);
 }

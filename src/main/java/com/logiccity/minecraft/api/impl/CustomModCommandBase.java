@@ -7,6 +7,10 @@ public abstract class CustomModCommandBase extends ApiCommandBase implements Mod
 		super(name, args);
 	}
 
+	protected CustomModCommandBase(String name, String key, int... args) {
+		super(name, key, args);
+	}
+
 	@Override
 	public void initCmd(String[] args) {
 	}

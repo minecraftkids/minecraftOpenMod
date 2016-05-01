@@ -11,7 +11,7 @@ public class ListPlayers extends CustomCommandBase {
 
 	@Override
 	public void execute(final String[] args) {
-		List<String> bp = gameInfo.getClosestPlayerNames(Integer.valueOf(args[0]));
+		List<String> bp = gameInfo.getClosestEntityNames(Integer.valueOf(args[0]), true);
 		if (bp != null) {
 			gameControl.chatLogInfo("§a" + bp.toString() +"§§");
 		} else {
