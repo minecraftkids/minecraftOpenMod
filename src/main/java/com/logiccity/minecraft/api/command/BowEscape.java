@@ -2,11 +2,16 @@ package com.logiccity.minecraft.api.command;
 
 import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 
-public class Cmd extends CustomModCommandBase {
-	private String playerName = "FriendToDino";
+public class BowEscape extends CustomModCommandBase {
+	private String playerName;
 
-	private Cmd() {
-		super("cmd");
+	private BowEscape() {
+		super("bowEscape", 1);
+	}
+	
+	@Override
+	public void initCmd(String [] args) {
+		playerName = args[0];
 	}
 
 	@Override
@@ -29,4 +34,11 @@ public class Cmd extends CustomModCommandBase {
 		}
 		return false;
 	}
+	
+	@Override
+	public void cleanupCmd() {
+		gameControl.releaseLeftKey();
+		gameControl.releaseSprintKey();
+	}
+
 }

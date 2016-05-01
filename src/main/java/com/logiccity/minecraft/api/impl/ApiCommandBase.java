@@ -1,7 +1,5 @@
 package com.logiccity.minecraft.api.impl;
 
-import org.lwjgl.input.Keyboard;
-
 import com.logiccity.minecraft.api.GameControl;
 import com.logiccity.minecraft.api.GameInfo;
 
@@ -11,7 +9,6 @@ public abstract class ApiCommandBase {
 	protected GameInfo gameInfo = null;
 	private int[] argNums;
 	private String name;
-	private int keyCode = -1;
 	private char keyChar = Character.MIN_VALUE;
 	protected ApiCommandBase(String name, int... args) {
 		this.name = name;
@@ -22,7 +19,6 @@ public abstract class ApiCommandBase {
 		this(name, args);
 		if (key != null && key.length() == 1) {
 			key = key.toUpperCase();
-			keyCode = Keyboard.getKeyIndex(key);
 			keyChar = key.charAt(0);
 		}
 	}
@@ -65,9 +61,5 @@ public abstract class ApiCommandBase {
 	
 	public void resetMillis() {
 		lastMS = System.currentTimeMillis();
-	}
-
-	public int getKey() {
-		return keyCode;
 	}
 }
