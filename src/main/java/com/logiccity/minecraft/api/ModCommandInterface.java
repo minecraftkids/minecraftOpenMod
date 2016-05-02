@@ -16,7 +16,12 @@ public interface ModCommandInterface {
 	 * Cleanup the command
 	 */
 	public void cleanupCmd();
-	
+	/**
+	 * Add a command to a list of commands that will be synchronously executed before next update invocation
+	 * @param cmdName the name of the command
+	 * @param args the arguments of the command
+	 */
+	void addToSyncCmds(String cmdName, String... args);
 	/**
 	 * Run operations in the update tic thread. This method will be invoked every few milliseconds
 	 * @return true will cause the command to be stopped, false will cause the command to continue

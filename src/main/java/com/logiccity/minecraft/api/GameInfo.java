@@ -81,7 +81,6 @@ public interface GameInfo {
 	 */
 	@I_PlayerRotation
 	float getPreviousRotationPitch();
-
 	/**
 	 * The distance between the projected block that another player is directly facing and the current player
 	 * @param playerName the other player's name
@@ -89,6 +88,13 @@ public interface GameInfo {
 	 */
 	@I_PlayerRotation
 	float[] lookAtMeDelta(String playerName);
+	/**
+	 * The calculated yaw for the player to face a block horizontally
+	 * @param bp the position of a block
+	 * @return the calculated yaw to face the block
+	 */
+	@I_PlayerRotation
+	float faceBlockYaw(BlockPos bp);
 
 	/**
 	 * Check if the material on a block is solid
