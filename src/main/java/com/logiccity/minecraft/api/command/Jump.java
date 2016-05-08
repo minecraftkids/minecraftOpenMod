@@ -4,7 +4,7 @@ import com.logiccity.minecraft.api.impl.CustomCommandBase;
 
 public class Jump extends CustomCommandBase {
 	private Jump() {
-		super("jump", "J");
+		super("jump");
 	}
 
 	@Override

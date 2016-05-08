@@ -17,8 +17,7 @@ public class BowEscape extends CustomModCommandBase {
 	@Override
 	public boolean doInUpdateTicThread() {
 		if (this.hasMillisPassed(500)) {
-			String holding = gameInfo.holdingItemTypeName(playerName);
-			if (holding != null && holding.indexOf("bow") != -1) {
+			if ("bow".equals(gameInfo.holdingItemUnlocalizedName(playerName))) {
 				float[] delta = gameInfo.lookAtMeDelta(playerName);
 				if (delta != null) {
 					// System.out.println(delta[0] + "," + delta[1]);

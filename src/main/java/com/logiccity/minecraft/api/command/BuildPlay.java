@@ -109,7 +109,7 @@ public class BuildPlay extends CustomModCommandBase {
 				return false;
 			}
 			
-			if (currTarget.equals(gameInfo.getPlayerBlockPos())) {
+			if (currTarget.equals(gameInfo.getLivingEntityLocation(null))) {
 				shouldJumpBuild = true;
 				return false;
 			}

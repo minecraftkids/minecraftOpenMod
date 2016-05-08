@@ -179,7 +179,7 @@ public class BuildLetters extends BuildBooleanArray {
 			}
 			cnt++;
 		}
-		startBp = gameInfo.getPlayerBlockPos().add(0, 0, 3);
+		startBp = gameInfo.getLivingEntityLocation(null).add(0, 0, 3);
 		super.initCmd(args);
 	}
 

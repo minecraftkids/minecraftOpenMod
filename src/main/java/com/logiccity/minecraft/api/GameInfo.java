@@ -5,10 +5,10 @@ import java.util.List;
 
 import com.logiccity.minecraft.api.BlocklyCatMarker.C_CommandAccess;
 import com.logiccity.minecraft.api.BlocklyCatMarker.I_BlockInfo;
+import com.logiccity.minecraft.api.BlocklyCatMarker.I_GameStatus;
+import com.logiccity.minecraft.api.BlocklyCatMarker.I_MovementState;
 import com.logiccity.minecraft.api.BlocklyCatMarker.I_PlayerLocation;
 import com.logiccity.minecraft.api.BlocklyCatMarker.I_PlayerRotation;
-import com.logiccity.minecraft.api.BlocklyCatMarker.I_PlayerStatus;
-//import com.logiccity.minecraft.api.GameControl.HelperUtils;
 
 /**
  * The interface for retrieving player/game info
@@ -16,12 +16,6 @@ import com.logiccity.minecraft.api.BlocklyCatMarker.I_PlayerStatus;
  *
  */
 public interface GameInfo {
-	/**
-	 * Get current player's block location
-	 * @return block pos
-	 */
-	@I_PlayerLocation
-	BlockPos getPlayerBlockPos();
 	/**
 	 * Get player x coordinate
 	 * @return x
@@ -41,12 +35,12 @@ public interface GameInfo {
 	@I_PlayerLocation
 	double getPlayerPosZ();
 	/**
-	 * Get another player's block location
-	 * @param name player name
+	 * Get block location of an living entity
+	 * @param name entity name or unique ID. null or empty string means current player
 	 * @return block position
 	 */
 	@I_PlayerLocation
-	BlockPos getPlayerLocation(String name);
+	BlockPos getLivingEntityLocation(String name);
 	/**
 	 * Get the square distance form the player to a point
 	 * @param x the point's x coordinate
@@ -97,6 +91,65 @@ public interface GameInfo {
 	float faceBlockYaw(BlockPos bp);
 
 	/**
+	 * Check if the player is flying
+	 * @return true if flying
+	 */
+	@I_MovementState
+	boolean isPlayerFlying();
+	/**
+	 * Check if the player collided horizontally
+	 * @return true if player has collided with something on X- or Z-axis
+	 */
+	@I_MovementState
+	boolean isPlayerCollidedHorizontally();
+	/**
+	 * Check if the player is changing location
+	 * @return true if player is changing location
+	 */
+	@I_MovementState
+	boolean isPlayerChaningLocation();
+	/**
+	 * Get the speed that the player is moving forward
+	 * @return the speed that player is moving forward(>0) or backward(<0)
+	 */
+	@I_MovementState
+	float getPlayerForwardSpeed();
+	/**
+	 * Check if the player is sneaking
+	 * @return if the player is sneaking
+	 */
+	@I_MovementState
+	boolean isKeySneakPressed();
+	
+	/**
+	 * Get the names of entities that are closest to the player
+	 * @param count the number of names to return 
+	 * @param playerOnly if only players are included
+	 * @return list of names
+	 */
+	@I_GameStatus
+	List<String> getClosestEntityNames(int count, boolean playerOnly);
+	/**
+	 * Get player mouse over block pos
+	 * @return block pos
+	 */
+	@I_GameStatus
+	BlockPos getMouseOverBlock();
+	/**
+	 * Check if the current game mode is creative
+	 * @return true if in creative mode
+	 */
+	@I_GameStatus
+	boolean isCreativeMode();
+	/**
+	 * Get the item unlocalized name that a player is holding
+	 * @param playerName A player's name, use null or empty string for the current user
+	 * @return item's unlocalized name
+	 */
+	@I_GameStatus
+	String holdingItemUnlocalizedName(String playerName);
+
+	/**
 	 * Check if the material on a block is solid
 	 * @param pos the block position
 	 * @return true if solid
@@ -125,52 +178,6 @@ public interface GameInfo {
 	@I_BlockInfo
 	boolean isInWater(BlockPos pos);
 	
-	/**
-	 * Check if the player is flying
-	 * @return true if flying
-	 */
-	@I_PlayerStatus
-	boolean isPlayerFlying();
-	/**
-	 * Check if the player is attempting to move
-	 * @return true if player is attempting to move
-	 */
-	@I_PlayerStatus
-	boolean isPlayerAttemptingMove();
-	/**
-	 * Check if the player is changing location
-	 * @return true if player is changing location
-	 */
-	@I_PlayerStatus
-	boolean isPlayerChaningLocation();
-	/**
-	 * Get the names of entities that are closest to the player
-	 * @param count the number of names to return 
-	 * @param playerOnly if only players are included
-	 * @return list of names
-	 */
-	@I_PlayerStatus
-	List<String> getClosestEntityNames(int count, boolean playerOnly);
-	/**
-	 * Get player mouse over block pos
-	 * @return block pos
-	 */
-	@I_PlayerStatus
-	BlockPos getMouseOverBlock();
-	/**
-	 * Check if the current game mode is creative
-	 * @return true if in creative mode
-	 */
-	@I_PlayerStatus
-	boolean isCreativeMode();
-	/**
-	 * Get the item info that another player is holding
-	 * @param playerName another player's name
-	 * @return item name : item class name
-	 */
-	@I_PlayerStatus
-	String holdingItemTypeName(String playerName);
-
 	/**
 	 * Check if the named command is running
 	 * @param name command name
@@ -207,4 +214,52 @@ public interface GameInfo {
 	 */
 //	@I_HelperUtils
 	boolean [][] generateMaze(int columns, int rows);
+	
+	/**
+	 * Get health of a living entity
+	 * @param name the name of the entity
+	 * @return the health number or -1 if entity died or does not exist
+	 */
+	float getLivingEntityHealth(String name);
+	/**
+	 * Get the entity with the smallest angle to the direction the player is facing
+	 * @return names for players or unique ID for non-players
+	 */
+	String getClosestFacingAngleEntity();
+	/**
+	 * Is the current player pressing the UseItem key (mouse key)
+	 * @return if the UseItem key is pressed
+	 */
+	boolean isKeyUseItemPressed();
+	/**
+	 * Is the current player pressing the Attack key (mouse key)
+	 * @return if the Attack key is pressed
+	 */
+	boolean isKeyAttackPressed();
+	/**
+	 * Get all of the positions of chests within the world
+	 * @param maxChests the limit on number of positions returned
+	 * @return a list of chest positions
+	 */
+	boolean renderChestEsp(int maxChests);
+	/**
+	 * If the player is on the ground
+	 * @return if the player is on the ground
+	 */
+	boolean isPlayerOnGround();
+	/**
+	 * Is the jump key pressed
+	 * @return if the jump key pressed
+	 */
+	boolean isKeyJumpPressed();
+	/**
+	 * Get the vertical motion of the current player
+	 * @return the vertical motion
+	 */
+	double getPlayerMotionY();
+	/**
+	 * Get the current brightness level of the world
+	 * @return the brightness level
+	 */
+	float getWorldBrightness();
 }

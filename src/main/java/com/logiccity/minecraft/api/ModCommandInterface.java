@@ -33,6 +33,11 @@ public interface ModCommandInterface {
 	 */
 	boolean doInRenderTicThread();
 	/**
+	 * Run operations in the post InGame render tic thread. This method will be invoked every few milliseconds
+	 * @return true will cause the command to be stopped, false will cause the command to continue
+	 */
+	boolean doInPostInGameRenderTicThread();
+	/**
 	 * Configure this command based on user input from on the chat line. All command configuration
 	 * chat inputs start with "/-"
 	 * @param input the string after "/-"

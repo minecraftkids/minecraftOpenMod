@@ -10,7 +10,7 @@ public class Coords extends CustomCommandBase {
 
 	@Override
 	public void execute(final String[] args) {
-		BlockPos bp = gameInfo.getPlayerLocation(args[0]);
+		BlockPos bp = gameInfo.getLivingEntityLocation(args[0]);
 		if (bp != null) {
 			gameControl.chatLogInfo("§a" + bp.toString() +"§§");
 		} else {

@@ -1,13 +1,10 @@
 package com.logiccity.minecraft.api.impl;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 
 import com.logiccity.minecraft.api.ModCommandInterface;
 
-public abstract class CustomModCommandBase extends ApiCommandBase implements ModCommandInterface {
+public class CustomModCommandBase extends ApiCommandBase implements ModCommandInterface {
 	protected CustomModCommandBase(String name, int... args) {
 		super(name, args);
 	}
@@ -26,6 +23,16 @@ public abstract class CustomModCommandBase extends ApiCommandBase implements Mod
 
 	@Override
 	public boolean doInRenderTicThread() {
+		return false;
+	}
+	
+	@Override
+	public boolean doInUpdateTicThread() {
+		return false;
+	}
+
+	@Override
+	public boolean doInPostInGameRenderTicThread() {
 		return false;
 	}
 

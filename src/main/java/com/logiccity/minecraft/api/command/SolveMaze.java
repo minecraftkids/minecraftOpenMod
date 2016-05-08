@@ -17,7 +17,7 @@ public class SolveMaze extends CustomModCommandBase {
 
 	@Override
 	public void initCmd(String[] args) {
-		startPos = gameInfo.getPlayerBlockPos();
+		startPos = gameInfo.getLivingEntityLocation(null);
 		gameControl.pressRightKey();
 		gameControl.pressForwardKey();
 		checkX = gameInfo.getPlayerPosX();
@@ -30,7 +30,7 @@ public class SolveMaze extends CustomModCommandBase {
 		if (gameInfo.isCommandRunning("turn")) {
 			return false;
 		}
-		BlockPos bp = gameInfo.getPlayerBlockPos();
+		BlockPos bp = gameInfo.getLivingEntityLocation(null);
 		BlockPos bp1 = bp.add(1, 0, 0);
 		BlockPos bp2 = bp.add(-1, 0, 0);
 		BlockPos bp3 = bp.add(0, 0, 1);

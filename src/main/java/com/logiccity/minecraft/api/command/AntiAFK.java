@@ -23,7 +23,7 @@ public class AntiAFK extends CustomModCommandBase {
 	public void initCmd(String [] args) {
 		try
 		{
-			block = gameInfo.getPlayerBlockPos();
+			block = gameInfo.getLivingEntityLocation(null);
 		} catch(Exception e)
 		{
 			e.printStackTrace();

@@ -62,7 +62,7 @@ public class BuildBooleanArray extends CustomModCommandBase {
 			}
 			cBP = startBp.add(-cx, 0, -cz);
 		} else if (cBP != null) {
-			BlockPos playerBP = gameInfo.getPlayerBlockPos();
+			BlockPos playerBP = gameInfo.getLivingEntityLocation(null);
 			if (Math.abs(playerBP.getX() -cBP.getX()) > 3 || cBP.getZ() - playerBP.getZ() < 2) {
 				gameControl.executeCommand(
 						cheatMode ? "tpo" : "goto", new String[] {String.valueOf(cBP.getX()), 

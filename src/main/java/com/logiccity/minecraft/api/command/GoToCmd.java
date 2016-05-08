@@ -88,9 +88,6 @@ public class GoToCmd extends CustomModCommandBase {
 		{
 			return true;
 		}
-		if (gameInfo.isPlayerAttemptingMove() && (! gameInfo.isPlayerChaningLocation())) {
-			setBlockCenterFlags();
-		}
 		resetControls(gameControl);
 		if (gameInfo.isCommandRunning("turn")) {
 			return false;
@@ -99,7 +96,7 @@ public class GoToCmd extends CustomModCommandBase {
 			gameControl.executeCommand("turn", new String [] { String.valueOf(yawI) });
 			return false;
 		}
-		BlockPos currentPos = gameInfo.getPlayerBlockPos();
+		BlockPos currentPos = gameInfo.getLivingEntityLocation(null);
 		if ((! sneaking) && blockCenterFlags.needCenter()) {
 			double dxB = currentPos.getX() + 0.5 - gameInfo.getPlayerPosX(),
 					dzB = currentPos.getZ() + 0.5 - gameInfo.getPlayerPosZ();

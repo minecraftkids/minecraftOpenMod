@@ -23,7 +23,11 @@ public class Attack extends CustomModCommandBase {
 		}
 		gameControl.chatLogInfo(msg);
 	}
-	
+	@Override
+	public void cleanupCmd() {
+		gameControl.releaseForwardKey();
+	}
+
 	@Override
 	protected boolean handleCmdInput(String input) {
 		try {

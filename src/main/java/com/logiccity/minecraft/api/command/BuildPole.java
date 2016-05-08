@@ -12,7 +12,7 @@ public class BuildPole extends CustomModCommandBase {
 	
 	@Override
 	public void initCmd(String [] args) {
-		bp = gameInfo.getPlayerBlockPos();
+		bp = gameInfo.getLivingEntityLocation(null);
 		gameControl.setRotationPitch(90);
 	}
 	

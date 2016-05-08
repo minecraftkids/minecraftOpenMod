@@ -35,7 +35,7 @@ public class PathFinder {
 					return 0;
 			}
 		});
-		addPoint(gameInfo.getPlayerBlockPos(), null, 0, 0);
+		addPoint(gameInfo.getLivingEntityLocation(null), null, 0, 0);
 	}
 
 	public boolean find() {

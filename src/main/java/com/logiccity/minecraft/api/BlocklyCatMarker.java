@@ -5,7 +5,8 @@ public interface BlocklyCatMarker {
 	static @interface I_PlayerLocation {}
 	static @interface I_PlayerRotation {}
 	static @interface I_BlockInfo {}
-	static @interface I_PlayerStatus {}
+	static @interface I_GameStatus {}
+	static @interface I_MovementState {}
 
 	static @interface C_MovePlayerStart {}
 	static @interface C_MovePlayerStop {}

@@ -20,7 +20,7 @@ public class BuildMaze extends BuildBooleanArray {
 			height = Integer.parseInt(args[2]);
 		}
 		maze = gameInfo.generateMaze(width, length);
-		startBp = gameInfo.getPlayerBlockPos().add(0, 0, 3);
+		startBp = gameInfo.getLivingEntityLocation(null).add(0, 0, 3);
 		super.initCmd(args);
 	}
 }
