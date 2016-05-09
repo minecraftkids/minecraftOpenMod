@@ -44,14 +44,14 @@ public class AntiAFK extends CustomModCommandBase {
 			addToSyncCmds("turn", String.valueOf(yaw));
 		}
 		if(gameInfo.getPlayerDistanceSq(nextBlock.getX(), nextBlock.getY(), nextBlock.getZ()) > 1)
-			gameControl.pressForwardKey();
+			gameControl.pressReleaseForwardKey(true);
 		else
-			gameControl.releaseForwardKey();
+			gameControl.pressReleaseForwardKey(false);
 		return false;
 	}
 
 	@Override
 	public void cleanupCmd() {
-		gameControl.releaseForwardKey();
+		gameControl.pressReleaseForwardKey(false);
 	}
 }

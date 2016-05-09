@@ -22,10 +22,10 @@ public class GoLeft extends CustomModCommandBase {
 	public boolean doInUpdateTicThread() {
 		if (gameInfo.getPlayerDistanceSq(startX,
 				startY, startZ) < dist) {
-			gameControl.pressLeftKey();
+			gameControl.pressReleaseLeftKey(true);
 			return false;
 		}
-		gameControl.releaseLeftKey();
+		gameControl.pressReleaseLeftKey(false);
 		return true;
 	}
 

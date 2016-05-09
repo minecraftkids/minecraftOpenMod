@@ -74,12 +74,12 @@ public class GoToCmd extends CustomModCommandBase {
 	}
 
 	public static final void resetControls(GameControl gc) {
-		gc.releaseForwardKey();
-		gc.releaseBackKey();
-		gc.releaseRightKey();
-		gc.releaseLeftKey();
-		gc.releaseJumpKey();
-		gc.releaseSneakKey();
+		gc.pressReleaseForwardKey(false);
+		gc.pressReleaseBackKey(false);
+		gc.pressReleaseRightKey(false);
+		gc.pressReleaseLeftKey(false);
+		gc.pressReleaseJumpKey(false);
+		gc.pressReleaseSneakKey(false);
 	}
 	
 	@Override
@@ -142,9 +142,9 @@ public class GoToCmd extends CustomModCommandBase {
 		}
 		sneaking = nextPos.getY() == ((int) Math.floor(gameInfo.getPlayerPosY())) && (! gameInfo.isSolid(nextPos.add(0, -1, 0)));
 		if (sneaking) {
-			gameControl.pressSneakKey();
+			gameControl.pressReleaseSneakKey(true);
 		} else {
-			gameControl.releaseSneakKey();
+			gameControl.pressReleaseSneakKey(false);
 		}
 		int dx = nextPos.getX() - currentPos.getX(), dy = nextPos.getY() - currentPos.getY(), 
 				dz = nextPos.getZ() - currentPos.getZ();
@@ -153,7 +153,7 @@ public class GoToCmd extends CustomModCommandBase {
 //		System.out.println("---nextPos:" + nextPos);
 //		System.out.println("---dx:" + dx + ";dy:" + dy + ";dz:" + dz);
 		if (dy > 0) {
-			gameControl.pressJumpKey();
+			gameControl.pressReleaseJumpKey(true);
 //		} else if (dy < 0) {
 //			if(PathUtils.isFlyable(currentPos)) {
 //				Minecraft.getMinecraft().gameSettings.keyBindSneak.pressed = true;
@@ -197,27 +197,27 @@ public class GoToCmd extends CustomModCommandBase {
 	public static void movePlayerX(GameControl gc, boolean pos, int yawI) {
 		if (yawI == 0) {
 			if (pos) {
-				gc.pressLeftKey();
+				gc.pressReleaseLeftKey(true);
 			} else {
-				gc.pressRightKey();
+				gc.pressReleaseRightKey(true);
 			}
 		} else if (yawI == 90) {
 			if (pos) {
-				gc.pressBackKey();
+				gc.pressReleaseBackKey(true);
 			} else {
-				gc.pressForwardKey();
+				gc.pressReleaseForwardKey(true);
 			}
 		} else if (yawI == -90) {
 			if (pos) {
-				gc.pressForwardKey();
+				gc.pressReleaseForwardKey(true);
 			} else {
-				gc.pressBackKey();
+				gc.pressReleaseBackKey(true);
 			}
 		} else {
 			if (pos) {
-				gc.pressRightKey();
+				gc.pressReleaseRightKey(true);
 			} else {
-				gc.pressLeftKey();
+				gc.pressReleaseLeftKey(true);
 			}
 		}
 	}
@@ -225,27 +225,27 @@ public class GoToCmd extends CustomModCommandBase {
 	public static void movePlayerZ(GameControl gc, boolean pos, int yawI) {
 		if (yawI == 0) {
 			if (pos) {
-				gc.pressForwardKey();
+				gc.pressReleaseForwardKey(true);
 			} else {
-				gc.pressBackKey();
+				gc.pressReleaseBackKey(true);
 			}
 		} else if (yawI == 90) {
 			if (pos) {
-				gc.pressLeftKey();
+				gc.pressReleaseLeftKey(true);
 			} else {
-				gc.pressRightKey();
+				gc.pressReleaseRightKey(true);
 			}
 		} else if (yawI == -90) {
 			if (pos) {
-				gc.pressRightKey();
+				gc.pressReleaseRightKey(true);
 			} else {
-				gc.pressLeftKey();
+				gc.pressReleaseLeftKey(true);
 			}
 		} else {
 			if (pos) {
-				gc.pressBackKey();
+				gc.pressReleaseBackKey(true);
 			} else {
-				gc.pressForwardKey();
+				gc.pressReleaseForwardKey(true);
 			}
 		}
 	}

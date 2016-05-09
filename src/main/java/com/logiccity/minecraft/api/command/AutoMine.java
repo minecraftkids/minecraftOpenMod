@@ -15,7 +15,7 @@ public class AutoMine extends CustomModCommandBase {
 	}
 
 	public void initCmd(String[] args) {
-		gameControl.releaseAttackKey();
+		gameControl.pressReleaseAttackKey(false);
 	}
 
 	@Override
@@ -25,14 +25,14 @@ public class AutoMine extends CustomModCommandBase {
 			return false;
 		}
 		if (gameInfo.isSolid(bp)) {
-			gameControl.pressAttackKey();
+			gameControl.pressReleaseAttackKey(true);
 		} else {
-			gameControl.releaseAttackKey();
+			gameControl.pressReleaseAttackKey(false);
 		}
 		return false;
 	}
 
 	public void cleanup() {
-		gameControl.releaseAttackKey();
+		gameControl.pressReleaseAttackKey(false);
 	}
 }

@@ -18,8 +18,8 @@ public class SolveMaze extends CustomModCommandBase {
 	@Override
 	public void initCmd(String[] args) {
 		startPos = gameInfo.getLivingEntityLocation(null);
-		gameControl.pressRightKey();
-		gameControl.pressForwardKey();
+		gameControl.pressReleaseRightKey(true);
+		gameControl.pressReleaseForwardKey(true);
 		checkX = gameInfo.getPlayerPosX();
 		state = FR;
 		gameControl.executeCommand("turn", new String[] {"0"});
@@ -37,10 +37,10 @@ public class SolveMaze extends CustomModCommandBase {
 		BlockPos bp4 = bp.add(0, 0, -1);
 		if ((bp != startPos) && (!(gameInfo.isSolid(bp1))) && (!(gameInfo.isSolid(bp2))) && (!(gameInfo.isSolid(bp3)))
 				&& (!(gameInfo.isSolid(bp4)))) {
-			gameControl.releaseForwardKey();
-			gameControl.releaseBackKey();
-			gameControl.releaseRightKey();
-			gameControl.releaseLeftKey();
+			gameControl.pressReleaseForwardKey(false);
+			gameControl.pressReleaseBackKey(false);
+			gameControl.pressReleaseRightKey(false);
+			gameControl.pressReleaseLeftKey(false);
 			return true;
 
 		}
@@ -49,29 +49,29 @@ public class SolveMaze extends CustomModCommandBase {
 			if (state == FR) {
 				if (checkX - gameInfo.getPlayerPosX() > 1) {
 					state = BR;
-					gameControl.releaseForwardKey();
-					gameControl.pressBackKey();
+					gameControl.pressReleaseForwardKey(false);
+					gameControl.pressReleaseBackKey(true);
 					checkZ = gameInfo.getPlayerPosZ();
 				}
 			} else if (state == FL) {
 				if (checkZ - gameInfo.getPlayerPosZ() < -1) {
 					state = FR;
-					gameControl.releaseLeftKey();
-					gameControl.pressRightKey();
+					gameControl.pressReleaseLeftKey(false);
+					gameControl.pressReleaseRightKey(true);
 					checkX = gameInfo.getPlayerPosX();
 				}
 			} else if (state == BR) {
 				if (checkZ - gameInfo.getPlayerPosZ() > 1) {
 					state = BL;
-					gameControl.releaseRightKey();
-					gameControl.pressLeftKey();
+					gameControl.pressReleaseRightKey(false);
+					gameControl.pressReleaseLeftKey(true);
 					checkX = gameInfo.getPlayerPosX();
 				}
 			} else if (state == BL) {
 				if (checkX - gameInfo.getPlayerPosX() < -1) {
 					state = FL;
-					gameControl.pressForwardKey();
-					gameControl.releaseBackKey();
+					gameControl.pressReleaseForwardKey(true);
+					gameControl.pressReleaseBackKey(false);
 					checkZ = gameInfo.getPlayerPosZ();
 				}
 			}
@@ -82,23 +82,23 @@ public class SolveMaze extends CustomModCommandBase {
 		}
 		if (state == FR) {
 			state = FL;
-			gameControl.releaseRightKey();
-			gameControl.pressLeftKey();
+			gameControl.pressReleaseRightKey(false);
+			gameControl.pressReleaseLeftKey(true);
 			checkZ = gameInfo.getPlayerPosZ();
 		} else if (state == BL) {
 			state = BR;
-			gameControl.pressRightKey();
-			gameControl.releaseLeftKey();
+			gameControl.pressReleaseRightKey(true);
+			gameControl.pressReleaseLeftKey(false);
 			checkZ = gameInfo.getPlayerPosZ();
 		} else if (state == FL) {
 			state = BL;
-			gameControl.releaseForwardKey();
-			gameControl.pressBackKey();
+			gameControl.pressReleaseForwardKey(false);
+			gameControl.pressReleaseBackKey(true);
 			checkX = gameInfo.getPlayerPosX();
 		} else {
 			state = FR;
-			gameControl.pressForwardKey();
-			gameControl.releaseBackKey();
+			gameControl.pressReleaseForwardKey(true);
+			gameControl.pressReleaseBackKey(false);
 			checkX = gameInfo.getPlayerPosX();
 		}
 //		if (oldS != state) {

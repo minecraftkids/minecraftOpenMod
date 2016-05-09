@@ -22,10 +22,10 @@ public class GoBack extends CustomModCommandBase {
 	public boolean doInUpdateTicThread() {
 		if (gameInfo.getPlayerDistanceSq(startX,
 				startY, startZ) < dist) {
-			gameControl.pressBackKey();
+			gameControl.pressReleaseBackKey(true);
 			return false;
 		}
-		gameControl.releaseBackKey();
+		gameControl.pressReleaseBackKey(false);
 		return true;
 	}
 

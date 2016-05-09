@@ -6,6 +6,7 @@ import java.util.List;
 import com.logiccity.minecraft.api.BlocklyCatMarker.C_CommandAccess;
 import com.logiccity.minecraft.api.BlocklyCatMarker.I_BlockInfo;
 import com.logiccity.minecraft.api.BlocklyCatMarker.I_GameStatus;
+import com.logiccity.minecraft.api.BlocklyCatMarker.I_ClientStatus;
 import com.logiccity.minecraft.api.BlocklyCatMarker.I_MovementState;
 import com.logiccity.minecraft.api.BlocklyCatMarker.I_PlayerLocation;
 import com.logiccity.minecraft.api.BlocklyCatMarker.I_PlayerRotation;
@@ -114,13 +115,45 @@ public interface GameInfo {
 	 */
 	@I_MovementState
 	float getPlayerForwardSpeed();
+	
 	/**
 	 * Check if the player is sneaking
 	 * @return if the player is sneaking
 	 */
-	@I_MovementState
+	@I_ClientStatus
 	boolean isKeySneakPressed();
-	
+	/**
+	 * Is the current player pressing the UseItem key (mouse key)
+	 * @return if the UseItem key is pressed
+	 */
+	@I_ClientStatus
+	boolean isKeyUseItemPressed();
+	/**
+	 * Is the current player pressing the Attack key (mouse key)
+	 * @return if the Attack key is pressed
+	 */
+	@I_ClientStatus
+	boolean isKeyAttackPressed();
+	/**
+	 * Is the jump key pressed
+	 * @return if the jump key pressed
+	 */
+	@I_ClientStatus
+	boolean isKeyJumpPressed();
+	/**
+	 * Get player mouse over block pos
+	 * @return block pos
+	 */
+	@I_ClientStatus
+	BlockPos getMouseOverBlock();
+	/**
+	 * Get the item unlocalized name that a player is holding
+	 * @param playerName A player's name, use null or empty string for the current user
+	 * @return item's unlocalized name
+	 */
+	@I_ClientStatus
+	String holdingItemUnlocalizedName(String playerName);
+
 	/**
 	 * Get the names of entities that are closest to the player
 	 * @param count the number of names to return 
@@ -130,24 +163,11 @@ public interface GameInfo {
 	@I_GameStatus
 	List<String> getClosestEntityNames(int count, boolean playerOnly);
 	/**
-	 * Get player mouse over block pos
-	 * @return block pos
-	 */
-	@I_GameStatus
-	BlockPos getMouseOverBlock();
-	/**
 	 * Check if the current game mode is creative
 	 * @return true if in creative mode
 	 */
 	@I_GameStatus
 	boolean isCreativeMode();
-	/**
-	 * Get the item unlocalized name that a player is holding
-	 * @param playerName A player's name, use null or empty string for the current user
-	 * @return item's unlocalized name
-	 */
-	@I_GameStatus
-	String holdingItemUnlocalizedName(String playerName);
 
 	/**
 	 * Check if the material on a block is solid
@@ -220,46 +240,30 @@ public interface GameInfo {
 	 * @param name the name of the entity
 	 * @return the health number or -1 if entity died or does not exist
 	 */
+	@I_GameStatus
 	float getLivingEntityHealth(String name);
 	/**
 	 * Get the entity with the smallest angle to the direction the player is facing
 	 * @return names for players or unique ID for non-players
 	 */
+	@I_GameStatus
 	String getClosestFacingAngleEntity();
-	/**
-	 * Is the current player pressing the UseItem key (mouse key)
-	 * @return if the UseItem key is pressed
-	 */
-	boolean isKeyUseItemPressed();
-	/**
-	 * Is the current player pressing the Attack key (mouse key)
-	 * @return if the Attack key is pressed
-	 */
-	boolean isKeyAttackPressed();
-	/**
-	 * Get all of the positions of chests within the world
-	 * @param maxChests the limit on number of positions returned
-	 * @return a list of chest positions
-	 */
-	boolean renderChestEsp(int maxChests);
 	/**
 	 * If the player is on the ground
 	 * @return if the player is on the ground
 	 */
+	@I_ClientStatus
 	boolean isPlayerOnGround();
-	/**
-	 * Is the jump key pressed
-	 * @return if the jump key pressed
-	 */
-	boolean isKeyJumpPressed();
 	/**
 	 * Get the vertical motion of the current player
 	 * @return the vertical motion
 	 */
+	@I_ClientStatus
 	double getPlayerMotionY();
 	/**
 	 * Get the current brightness level of the world
 	 * @return the brightness level
 	 */
+	@I_GameStatus
 	float getWorldBrightness();
 }

@@ -22,10 +22,10 @@ public class GoRight extends CustomModCommandBase {
 	public boolean doInUpdateTicThread() {
 		if (gameInfo.getPlayerDistanceSq(startX,
 				startY, startZ) < dist) {
-			gameControl.pressRightKey();
+			gameControl.pressReleaseRightKey(true);
 			return false;
 		}
-		gameControl.releaseRightKey();
+		gameControl.pressReleaseRightKey(false);
 		return true;
 	}
 

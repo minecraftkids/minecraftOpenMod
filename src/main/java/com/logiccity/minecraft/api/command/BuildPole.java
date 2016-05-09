@@ -18,10 +18,10 @@ public class BuildPole extends CustomModCommandBase {
 	
 	@Override
 	public boolean doInUpdateTicThread() {
-		gameControl.pressJumpKey();
+		gameControl.pressReleaseJumpKey(true);
 		if ( gameInfo.getPlayerPosY() > bp.getY() + 1) {
 			gameControl.sendBlockPlacementPacket(bp.getX(), bp.getY() - 1, bp.getZ(), 1);
-			gameControl.releaseJumpKey();
+			gameControl.pressReleaseJumpKey(false);
 			return true;
 		}
 		return false;

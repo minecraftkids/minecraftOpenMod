@@ -23,10 +23,10 @@ public class GoForward extends CustomModCommandBase {
 	public boolean doInUpdateTicThread() {
 		if (gameInfo.getPlayerDistanceSq(startX,
 				startY, startZ) < dist) {
-			gameControl.pressForwardKey();
+			gameControl.pressReleaseForwardKey(true);
 			return false;
 		}
-		gameControl.releaseForwardKey();
+		gameControl.pressReleaseForwardKey(false);
 		return true;
 	}
 }

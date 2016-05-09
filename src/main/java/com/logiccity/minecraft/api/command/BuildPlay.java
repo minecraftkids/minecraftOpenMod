@@ -62,14 +62,14 @@ public class BuildPlay extends CustomModCommandBase {
 			GoToCmd.resetControls(gameControl);
 		}
 		if (shouldJumpBuild) {
-			gameControl.pressJumpKey();
+			gameControl.pressReleaseJumpKey(true);
 //			System.out.println("|||bp:" + currTarget);
 //			System.out.println("|||player@(" + player.posX + "," + player.posY + "," + player.posZ + ")");
 			if (gameInfo.getPlayerPosY() - currTarget.getY() > 1) {
 				buildRecordedStep();
 				shouldJumpBuild = false;
 				idx ++;
-				gameControl.releaseJumpKey();
+				gameControl.pressReleaseJumpKey(false);
 			} 
 			return false;
 		}

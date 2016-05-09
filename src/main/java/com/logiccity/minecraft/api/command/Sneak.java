@@ -20,7 +20,7 @@ public class Sneak extends CustomModCommandBase {
 
 	@Override
 	public void cleanupCmd() {
-		gameControl.releaseSneakKey();
+		gameControl.pressReleaseSneakKey(false);
 		gameControl.sendSneakingStartStopPacket(false);
 	}
 }

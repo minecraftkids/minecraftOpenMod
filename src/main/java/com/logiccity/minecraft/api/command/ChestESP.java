@@ -26,7 +26,7 @@ public class ChestESP extends CustomModCommandBase {
 	@Override
 	public boolean doInRenderTicThread() {
 		int i = 0;
-		boolean maxed = gameInfo.renderChestEsp(maxChests);
+		boolean maxed = gameControl.renderChestEsp(maxChests);
 		if (maxed && shouldInform) {
 			gameControl.chatLogWarning(getName()
 					+ " found §lA LOT§r of chests.");

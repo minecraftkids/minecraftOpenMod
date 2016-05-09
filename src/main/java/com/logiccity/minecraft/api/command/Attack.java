@@ -25,7 +25,7 @@ public class Attack extends CustomModCommandBase {
 	}
 	@Override
 	public void cleanupCmd() {
-		gameControl.releaseForwardKey();
+		gameControl.pressReleaseForwardKey(false);;
 	}
 
 	@Override

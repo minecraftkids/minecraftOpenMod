@@ -22,13 +22,13 @@ public class BowEscape extends CustomModCommandBase {
 				if (delta != null) {
 					// System.out.println(delta[0] + "," + delta[1]);
 					if (delta[0] < 5 && delta[1] < 1) {
-						gameControl.pressLeftKey();
-						gameControl.pressSprintKey();
+						gameControl.pressReleaseLeftKey(true);
+						gameControl.pressReleaseSprintKey(true);
 						return false;
 					}
 				}
-				gameControl.releaseLeftKey();
-				gameControl.releaseSprintKey();
+				gameControl.pressReleaseLeftKey(false);
+				gameControl.pressReleaseSprintKey(false);
 			}
 		}
 		return false;
@@ -36,8 +36,8 @@ public class BowEscape extends CustomModCommandBase {
 	
 	@Override
 	public void cleanupCmd() {
-		gameControl.releaseLeftKey();
-		gameControl.releaseSprintKey();
+		gameControl.pressReleaseLeftKey(false);
+		gameControl.pressReleaseSprintKey(false);
 	}
 
 }
