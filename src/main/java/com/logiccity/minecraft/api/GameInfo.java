@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.logiccity.minecraft.api.BlocklyCatMarker.C_CommandAccess;
 import com.logiccity.minecraft.api.BlocklyCatMarker.I_BlockInfo;
-import com.logiccity.minecraft.api.BlocklyCatMarker.I_GameStatus;
 import com.logiccity.minecraft.api.BlocklyCatMarker.I_ClientStatus;
+import com.logiccity.minecraft.api.BlocklyCatMarker.I_GameStatus;
 import com.logiccity.minecraft.api.BlocklyCatMarker.I_MovementState;
 import com.logiccity.minecraft.api.BlocklyCatMarker.I_PlayerLocation;
 import com.logiccity.minecraft.api.BlocklyCatMarker.I_PlayerRotation;
@@ -211,13 +211,6 @@ public interface GameInfo {
 	 * @return true if any other command is running
 	 */
 	boolean isAnyCommandRunning(String excludes);
-	/**
-	 * Check if the named mod is enabled 
-	 * @param name mod name
-	 * @return true if enabled
-	 */
-	@C_CommandAccess
-	boolean isModEnabled(String name);
 	
 	/**
 	 * Load previously recorded building steps

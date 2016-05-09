@@ -9,7 +9,7 @@ public class PathUtils {
 	}
 
 	public static boolean isFallable(BlockPos pos, GameInfo gi) {
-		for (int i = -1; i >= ((gi.isModEnabled("NoFall") || gi.isCreativeMode()) ? -256 : -3); i--) {
+		for (int i = -1; i >= ((gi.isCommandRunning("NoFall") || gi.isCreativeMode()) ? -256 : -3); i--) {
 			if (gi.isSolid(pos.add(0, i, 0))) {
 				return true;
 			}
@@ -29,7 +29,7 @@ public class PathUtils {
 	}
 
 	public static boolean isFlyable(BlockPos pos, GameInfo gi) {
-		return gi.isModEnabled("Flight") || gi.isPlayerFlying()
+		return gi.isCommandRunning("Flight") || gi.isPlayerFlying()
 				|| gi.isInWater(pos);
 	}
 
