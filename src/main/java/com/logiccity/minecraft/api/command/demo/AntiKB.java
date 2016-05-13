@@ -15,11 +15,11 @@ public class AntiKB extends CustomModCommandBase {
 	
 	@Override
 	public void initCmd(String[] args) {
-		gameControl.disablePlayerKnockBack();
+		gameControl.setPlayerKnockBackEnabled(false);
 	}
 
 	@Override
 	public void cleanupCmd() {
-		gameControl.enablePlayerKnockBack();
+		gameControl.setPlayerKnockBackEnabled(true);
 	}
 }

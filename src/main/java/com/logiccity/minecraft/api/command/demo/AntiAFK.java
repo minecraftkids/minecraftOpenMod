@@ -34,10 +34,10 @@ public class AntiAFK extends CustomModCommandBase {
 	
 	@Override
 	public boolean doInUpdateTicThread() {		
-		if(this.hasMillisPassed(3000) || nextBlock == null)
+		if(this.hasMillisPassed(3000))
 		{
 			nextBlock =
-				block.add(random.nextInt(3) - 1, 0, random.nextInt(3) - 1);
+				block.add(random.nextInt(5) - 1, 0, random.nextInt(5) - 1);
 		}
 		float yaw = gameInfo.faceBlockYaw(nextBlock);
 		if (Math.abs(yaw - gameInfo.getRotationYaw()) > 0.1) {

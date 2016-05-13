@@ -13,7 +13,7 @@ public class ChestESP extends CustomModCommandBase {
 	}
 
 	private int maxChests = 1000;
-	public boolean shouldInform = true;
+	public boolean shouldInform;
 
 	@Override
 	public void initCmd(String[] args) {
@@ -25,13 +25,12 @@ public class ChestESP extends CustomModCommandBase {
 
 	@Override
 	public boolean doInRenderTicThread() {
-		int i = 0;
 		boolean maxed = gameControl.renderChestEsp(maxChests);
 		if (maxed && shouldInform) {
 			gameControl.chatLogWarning(getName()
-					+ " found §lA LOT§r of chests.");
+					+ "Found a lot of chests");
 			gameControl.chatLogInfo("To prevent lag, it will only show the first "
-							+ maxChests + " chests.");
+							+ maxChests + " chests");
 			shouldInform = false;
 		} else if (! maxed) {
 			shouldInform = true;

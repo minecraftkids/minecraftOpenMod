@@ -9,7 +9,7 @@ import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 public class Criticals extends CustomModCommandBase {
 
 	private Criticals() {
-		super("Critical", "N");
+		super("CriticalJava", "N");
 	}
 
 	@Override

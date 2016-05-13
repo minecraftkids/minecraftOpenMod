@@ -4,14 +4,14 @@ import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 
 public class ArmorStatus extends CustomModCommandBase {
 	private ArmorStatus() {
-		super("ArmorStatus", 0, 1, 2, 3, 4);
+		super("ArmorStatus", "K", 0, 1, 2, 3, 4);
 	}
 	
 	@Override
 	public void initCmd(String[] args) {
-		String listMode = "horizontal", alignMode = "bottomleft";
+		String listMode = "vertical", alignMode = "bottomleft";
 		boolean showPercent = false, showMaxDamage = true;
-		if (args.length > 0) {
+		if (args != null && args.length > 0) {
 			listMode = args[0];
 			if (args.length > 1) {
 				alignMode = args[1];

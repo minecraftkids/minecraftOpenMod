@@ -26,7 +26,7 @@ public class KillAuraMod extends CustomModCommandBase {
 			BlockPos bp = gameInfo.getLivingEntityLocation(en);
 			if (gameInfo.getPlayerDistanceSq(bp.getX(), bp.getY(), bp.getZ()) <= realRange
 				&& hasMillisPassed(realSpeed)) {
-				gameControl.executeCommandMethod("Critical", "doCritical");
+				gameControl.executeCommandMethod("CriticalJava", "doCritical");
 				gameControl.sendFaceEntityAttackPackets(en);
 			}
 		}

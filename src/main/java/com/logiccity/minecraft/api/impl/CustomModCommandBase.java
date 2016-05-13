@@ -1,5 +1,6 @@
 package com.logiccity.minecraft.api.impl;
 
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 
 import com.logiccity.minecraft.api.ModCommandInterface;
@@ -51,9 +52,12 @@ public class CustomModCommandBase extends ApiCommandBase implements ModCommandIn
 	private final LinkedHashMap<String, String[]> syncCmds = new LinkedHashMap<String, String[]>();
 	
 	@Override
-	public void addToSyncCmds(String cmdName, String... args) {
-		if (args == null) {
+	public void addToSyncCmds(String cmdName, String argStr) {
+		String [] args;
+		if (argStr == null || (argStr = argStr.trim()).length() == 0) {
 			args = new String[0];
+		} else {
+			args = argStr.split("[ ,]+");
 		}
 		syncCmds.put(cmdName, args);
 	}
@@ -61,5 +65,4 @@ public class CustomModCommandBase extends ApiCommandBase implements ModCommandIn
 	public LinkedHashMap<String, String[]> getSyncCmds() {
 		return syncCmds;
 	}
-
 }

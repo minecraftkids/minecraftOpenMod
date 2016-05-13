@@ -19,21 +19,21 @@ public interface ModCommandInterface {
 	/**
 	 * Add a command to a list of commands that will be synchronously executed before next update invocation
 	 * @param cmdName the name of the command
-	 * @param args the arguments of the command
+	 * @param args comma or space separated list of arguments
 	 */
-	void addToSyncCmds(String cmdName, String... args);
+	void addToSyncCmds(String cmdName, String args);
 	/**
-	 * Run operations in the update tic thread. This method will be invoked every few milliseconds
+	 * Invoke operations in the game tick thread which runs every few milliseconds
 	 * @return true will cause the command to be stopped, false will cause the command to continue
 	 */
 	boolean doInUpdateTicThread();
 	/**
-	 * Run operations in the render tic thread. This method will be invoked every few milliseconds
+	 * Perform main UI rendering in the game tick thread which runs every few milliseconds
 	 * @return true will cause the command to be stopped, false will cause the command to continue
 	 */
 	boolean doInRenderTicThread();
 	/**
-	 * Run operations in the post InGame render tic thread. This method will be invoked every few milliseconds
+	 * Perform additional rendering on top of the main rendering. Overwrite content below.
 	 * @return true will cause the command to be stopped, false will cause the command to continue
 	 */
 	boolean doInPostInGameRenderTicThread();

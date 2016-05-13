@@ -101,15 +101,11 @@ public interface GameControl {
 	@C_PlayerAttack
 	void playerSwingItem();
 	/**
-	 * Disable player knock back
+	 * Enable/Disable the knock back effect on the player
+     * @param enabled false will disable knock back effect
 	 */
 	@C_PlayerAttack
-	void disablePlayerKnockBack();
-	/**
-	 * Enable player knock back. This is the default behavior
-	 */
-	@C_PlayerAttack
-	void enablePlayerKnockBack();
+	void setPlayerKnockBackEnabled(boolean enabled);
 	/**
 	 * Initialize armor status UI
      * @param listMode armor list mode: 'horizontal' or 'vertical'
@@ -335,7 +331,7 @@ public interface GameControl {
 	@C_RenderUI
 	void initBaseFinder(int maxBlocks, int range);
 	/**
-	 * Called in render thread to show artificial blocks
+	 * Render artificial blocks (Base Finder)
 	 */
 	@C_RenderUI
 	void baseFinderRender();

@@ -117,25 +117,25 @@ public interface GameInfo {
 	float getPlayerForwardSpeed();
 	
 	/**
-	 * Check if the player is sneaking
+	 * Check if the Sneaking key is pressed
 	 * @return if the player is sneaking
 	 */
 	@I_ClientStatus
 	boolean isKeySneakPressed();
 	/**
-	 * Is the current player pressing the UseItem key (mouse key)
+	 * Check if the UseItem key (mouse key) is pressed
 	 * @return if the UseItem key is pressed
 	 */
 	@I_ClientStatus
 	boolean isKeyUseItemPressed();
 	/**
-	 * Is the current player pressing the Attack key (mouse key)
+	 * Check if the Attack key (mouse key) is pressed
 	 * @return if the Attack key is pressed
 	 */
 	@I_ClientStatus
 	boolean isKeyAttackPressed();
 	/**
-	 * Is the jump key pressed
+	 * Check if the jump key is pressed
 	 * @return if the jump key pressed
 	 */
 	@I_ClientStatus
