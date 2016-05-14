@@ -136,7 +136,7 @@ public interface GameControl {
 	void setRotationYaw(float yaw);
 
 	/**
-	 * Teleport user to new x,y,z. Single player creative mode only
+	 * Set the current player's x, y, z location
 	 * @param x new x location
 	 * @param y new y location
 	 * @param z new z location
@@ -152,13 +152,19 @@ public interface GameControl {
 	@C_CommandAccess
 	void executeCommand(String name, String[] args);
 	/**
+	 * Stop a command 
+	 * @param name command name
+	 */
+	@C_CommandAccess
+	void stopCommand(String name);
+	/**
 	 * Invoke a method on a command
 	 * @param cmdName command name
 	 * @param method method name
 	 */
 	@C_CommandAccess
 	void executeCommandMethod(String cmdName, String method);
-	
+
 	/**
 	 * Send block placement packet to the server
 	 * @param x the x of the block being clicked 
@@ -229,12 +235,12 @@ public interface GameControl {
 	@I_MovementState
 	void setPlayerSprinting(boolean sprinting);
 	/**
-	 * Clear player's XZ momentum so it will stop moving
+	 * Clear player's XZ motion so it will stop moving
 	 */
 	@I_MovementState
 	void clearPlayerMotionXZ();
 	/**
-	 * Set the Y motion of the current player
+	 * Set the player's Y motion
 	 * @param my new Y motion
 	 */
 	@I_MovementState
@@ -260,6 +266,12 @@ public interface GameControl {
 	boolean setPlayerCurrentItem(int index);
 	
 	/**
+	 * Set the brightness level of the world
+	 * @param gamma brightness level
+	 */
+	@I_GameStatus
+	void setWorldBrightness(float gamma);
+	/**
 	 * Update Base Finder blocks
 	 */
 	@I_GameStatus
@@ -276,12 +288,6 @@ public interface GameControl {
 	 */
 	@I_GameStatus
 	void removeEntityAndRenderWorld(int id);
-	/**
-	 * Set the brightness level of the world
-	 * @param gamma brightness level
-	 */
-	@I_GameStatus
-	void setWorldBrightness(float gamma);
 	
 	/**
 	 * Called in render thread to highlight an entity

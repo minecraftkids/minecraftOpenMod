@@ -9,12 +9,12 @@ import java.util.List;
 import com.logiccity.minecraft.api.BlockPos;
 import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 
-public class KillAuraMod extends CustomModCommandBase {
+public class KillAura extends CustomModCommandBase {
 
-	public int realSpeed = 12;
-	public float realRange = 20F;
+	public int speed = 12;
+	public float range = 20F;
 
-	private KillAuraMod() {
+	private KillAura() {
 		super("KillAura", "R");
 	}
 	
@@ -24,8 +24,8 @@ public class KillAuraMod extends CustomModCommandBase {
 		if (enl != null && enl.size() > 0) {
 			String en = enl.get(0);
 			BlockPos bp = gameInfo.getLivingEntityLocation(en);
-			if (gameInfo.getPlayerDistanceSq(bp.getX(), bp.getY(), bp.getZ()) <= realRange
-				&& hasMillisPassed(realSpeed)) {
+			if (gameInfo.getPlayerDistanceSq(bp.getX(), bp.getY(), bp.getZ()) <= range
+				&& hasMillisPassed(speed)) {
 				gameControl.executeCommandMethod("CriticalJava", "doCritical");
 				gameControl.sendFaceEntityAttackPackets(en);
 			}

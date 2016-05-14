@@ -6,9 +6,9 @@ package com.logiccity.minecraft.api.command.demo;
 
 import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 
-public class NoFallListener extends CustomModCommandBase {
+public class NoFall extends CustomModCommandBase {
 
-	private NoFallListener() {
+	private NoFall() {
 		super("NoFall", "L");
 	}
 	

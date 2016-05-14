@@ -1,6 +1,5 @@
 package com.logiccity.minecraft.api.impl;
 
-import java.util.Arrays;
 import java.util.LinkedHashMap;
 
 import com.logiccity.minecraft.api.ModCommandInterface;

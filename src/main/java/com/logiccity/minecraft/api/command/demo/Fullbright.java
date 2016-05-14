@@ -7,9 +7,9 @@ package com.logiccity.minecraft.api.command.demo;
 
 import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 
-public class FullbrightMod extends CustomModCommandBase {
+public class Fullbright extends CustomModCommandBase {
 
-	private FullbrightMod() {
+	private Fullbright() {
 		super("Fullbright", "B");
 	}
 	
@@ -20,5 +20,10 @@ public class FullbrightMod extends CustomModCommandBase {
 			gameControl.setWorldBrightness(brightness + 0.5f);
 		}
 		return false;
+	}
+	
+	@Override
+	public void cleanupCmd() {
+		gameControl.setWorldBrightness(0);
 	}
 }

@@ -2,8 +2,8 @@ package com.logiccity.minecraft.api.command.demo;
 
 import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 
-public class ProphuntEspMod extends CustomModCommandBase {
-	private ProphuntEspMod() {
+public class ProphuntEsp extends CustomModCommandBase {
+	private ProphuntEsp() {
 		super("ProphuntEspMod", "V");
 	}
 	
