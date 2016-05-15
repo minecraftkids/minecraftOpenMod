@@ -136,7 +136,13 @@ public interface GameControl {
 	void setRotationYaw(float yaw);
 
 	/**
-	 * Set the current player's x, y, z location
+	 * Set if the player is on ground on the client side
+	 * @param onGround
+	 */
+	@I_PlayerLocation
+	void setPlayerOnGround(boolean onGround);
+	/**
+	 * Set the current player's x, y, z location on the client side
 	 * @param x new x location
 	 * @param y new y location
 	 * @param z new z location
@@ -229,33 +235,28 @@ public interface GameControl {
 	void chatLogRaw(String msg);
 	
 	/**
-	 * Set the sprinting state of the player
-	 * @param sprinting sprinting on or off
-	 */
-	@I_MovementState
-	void setPlayerSprinting(boolean sprinting);
-	/**
-	 * Clear player's XZ motion so it will stop moving
-	 */
-	@I_MovementState
-	void clearPlayerMotionXZ();
-	/**
 	 * Set the player's Y motion
 	 * @param my new Y motion
 	 */
 	@I_MovementState
 	void setPlayerMotionY(double my);
 	/**
-	 * Set the factor that determines how far the player will move each tick if it is jumping or falling
-	 * @param f the factor which is 0.02 by default
+	 * Clear player's XZ motion so it will stop moving
 	 */
 	@I_MovementState
-	void setJumpMovementFactor(float f);
+	void clearPlayerMotionXZ();
 	/**
-	 * Clear the player's InWeb status
+	 * Set the sprinting state of the player
+	 * @param sprinting sprinting on or off
 	 */
 	@I_MovementState
-	void setPlayerNotInWeb();
+	void setPlayerSprinting(boolean sprinting);
+	/**
+	 * Set the player fall distance on the client side
+	 * @param f fall distance
+	 */
+	@I_MovementState
+	void setPlayerFallDistance(float f);
 	
 	/**
 	 * Set the players current holding item
@@ -264,6 +265,17 @@ public interface GameControl {
 	 */
 	@I_ClientStatus
 	boolean setPlayerCurrentItem(int index);
+	/**
+	 * Set the factor that determines how far the player will move each tick if it is jumping or falling
+	 * @param f the factor which is 0.02 by default
+	 */
+	@I_ClientStatus
+	void setJumpMovementFactor(float f);
+	/**
+	 * Clear the player's InWeb status
+	 */
+	@I_ClientStatus
+	void setPlayerNotInWeb();
 	
 	/**
 	 * Set the brightness level of the world
@@ -272,7 +284,7 @@ public interface GameControl {
 	@I_GameStatus
 	void setWorldBrightness(float gamma);
 	/**
-	 * Update Base Finder blocks
+	 * Update Base Finder render blocks such as wood, rail, fence and etc 
 	 */
 	@I_GameStatus
 	void baseFinderUpdate();
@@ -290,7 +302,7 @@ public interface GameControl {
 	void removeEntityAndRenderWorld(int id);
 	
 	/**
-	 * Called in render thread to highlight an entity
+	 * Highlight an entity in render thread
 	 * @param entityName 
 	 * @param colorMode
 	 */
@@ -337,7 +349,7 @@ public interface GameControl {
 	@C_RenderUI
 	void initBaseFinder(int maxBlocks, int range);
 	/**
-	 * Render artificial blocks (Base Finder)
+	 * Render artificial blocks in Base Finder
 	 */
 	@C_RenderUI
 	void baseFinderRender();

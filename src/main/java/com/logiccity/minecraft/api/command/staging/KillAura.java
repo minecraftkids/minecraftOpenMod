@@ -2,7 +2,7 @@
  * Copyright © 2015 modByKids contributors
  * All rights reserved.
  */
-package com.logiccity.minecraft.api.command.demo;
+package com.logiccity.minecraft.api.command.staging;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class KillAura extends CustomModCommandBase {
 	
 	@Override
 	public boolean doInUpdateTicThread() {
-		List<String> enl = gameInfo.getClosestEntityNames(1, true);
+		List<String> enl = gameInfo.getClosestEntityNames(1, false);
 		if (enl != null && enl.size() > 0) {
 			String en = enl.get(0);
 			BlockPos bp = gameInfo.getLivingEntityLocation(en);

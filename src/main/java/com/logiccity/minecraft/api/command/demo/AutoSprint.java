@@ -10,7 +10,7 @@ import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 public class AutoSprint extends CustomModCommandBase {
 
 	private AutoSprint() {
-		super("AutoSprint", "S");
+		super("AutoSprint", "J");
 	}
 
 	@Override

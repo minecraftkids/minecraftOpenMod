@@ -4,7 +4,7 @@ import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 
 public class BaseFinder extends CustomModCommandBase {
 	private BaseFinder() {
-		super("BaseFinder", "J", 0, 1, 2);
+		super("BaseFinder", "H", 0, 1, 2);
 	}
 	
 	@Override

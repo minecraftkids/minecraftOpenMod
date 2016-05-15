@@ -51,6 +51,18 @@ public interface GameInfo {
 	 */
 	@I_PlayerLocation
 	double getPlayerDistanceSq(double x, double y, double z);
+	/**
+	 * Get player mouse over block pos
+	 * @return block pos
+	 */
+	@I_PlayerLocation
+	BlockPos getMouseOverBlock();
+	/**
+	 * If the player is on the ground
+	 * @return if the player is on the ground
+	 */
+	@I_PlayerLocation
+	boolean isPlayerOnGround();
 
 	/**
 	 * Get player's rotation yaw
@@ -115,7 +127,13 @@ public interface GameInfo {
 	 */
 	@I_MovementState
 	float getPlayerForwardSpeed();
-	
+	/**
+	 * Get the vertical motion of the current player
+	 * @return the vertical motion
+	 */
+	@I_MovementState
+	double getPlayerMotionY();
+
 	/**
 	 * Check if the Sneaking key is pressed
 	 * @return if the player is sneaking
@@ -140,12 +158,6 @@ public interface GameInfo {
 	 */
 	@I_ClientStatus
 	boolean isKeyJumpPressed();
-	/**
-	 * Get player mouse over block pos
-	 * @return block pos
-	 */
-	@I_ClientStatus
-	BlockPos getMouseOverBlock();
 	/**
 	 * Get the item unlocalized name that a player is holding
 	 * @param playerName A player's name, use null or empty string for the current user
@@ -241,18 +253,7 @@ public interface GameInfo {
 	 */
 	@I_GameStatus
 	String getClosestFacingAngleEntity();
-	/**
-	 * If the player is on the ground
-	 * @return if the player is on the ground
-	 */
-	@I_ClientStatus
-	boolean isPlayerOnGround();
-	/**
-	 * Get the vertical motion of the current player
-	 * @return the vertical motion
-	 */
-	@I_ClientStatus
-	double getPlayerMotionY();
+	
 	/**
 	 * Get the current brightness level of the world
 	 * @return the brightness level

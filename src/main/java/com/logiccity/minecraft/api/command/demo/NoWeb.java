@@ -9,7 +9,7 @@ import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 public class NoWeb extends CustomModCommandBase {
 
 	private NoWeb() {
-		super("NoWeb", "J");
+		super("NoWeb");
 	}
 
 	@Override
