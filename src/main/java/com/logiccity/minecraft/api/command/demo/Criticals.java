@@ -6,10 +6,10 @@ package com.logiccity.minecraft.api.command.demo;
 
 import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 
-public class CriticalJava extends CustomModCommandBase {
+public class Criticals extends CustomModCommandBase {
 
-	private CriticalJava() {
-		super("CriticalJava", "N");
+	private Criticals() {
+		super("Criticals", "N");
 	}
 
 	@Override

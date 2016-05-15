@@ -163,13 +163,6 @@ public interface GameControl {
 	 */
 	@C_CommandAccess
 	void stopCommand(String name);
-	/**
-	 * Invoke a method on a command
-	 * @param cmdName command name
-	 * @param method method name
-	 */
-	@C_CommandAccess
-	void executeCommandMethod(String cmdName, String method);
 
 	/**
 	 * Send block placement packet to the server
