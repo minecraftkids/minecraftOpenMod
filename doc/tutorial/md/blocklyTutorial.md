@@ -28,7 +28,7 @@ Table of Contents
 
 * The completed "NameTags" command is:
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/blocklyNameTags.JPG)
-* The complete command contains two methods:
+* The command contains two methods:
     * The "Create the command" method creates the command with name: "NameTags". It also bind the command to short cut key: "G"
     * The "execute once" defines the actions of the command. It set the size of name label above players. If there is an argument passed to the command, it will be used as the size of label, otherwise the default sized of 2 will be used
 * Now to install the command, click on the "Install command" button:

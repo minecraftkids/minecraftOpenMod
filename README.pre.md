@@ -10,9 +10,11 @@ A modified Minecraft client that exposes a clean and simple interface to literal
 # Using the modified Minecraft client
 * Type "/." and then the "Tab" key to see a list of existing commands:
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/mcCommands.JPG)
-Each command can be used to enable certain modification or performance a task. The command names that end with "(?)" are associated with a short cut key. When not in chat line, type the short cut key will enable/disable the corresponding command. Within the chat line, typing command name preceded by "/." will enable/disable the command. Once enable, the MC client title bar should enabled commands as shown in the screenshot for the "Fullbright" command
+Each command can be used to enable certain feature or perform a task. The command names that end with "(?)" are associated with a short cut key. When not in chat line, type the short cut key will start/stop the corresponding command. Within the chat line, typing command name preceded by "/." will start/stop the command. The MC client title bar should show current running commands as shown in the screenshot for the "Fullbright" command
 
-* The following are the list of command with associated shotcut keys. Please see the tutorial sections on how to develop each one of them in Blockly or Java:
+* Type "/-" in chat allows a command to receive additional inputs. For example, "/.attack" in chat will lists five closest living entities on the chat window. You can chose the one by typing in chat "/-" follow by a number between 1 and 5. Once selected the player will attack the entity until it was killed. "/-stop" is a special input that stop all running commands
+
+* The following are the list of commands that are associated with shotcut keys. Please see the tutorial sections on how to develop each one of them in Blockly or Java:
 
     * 'B': Fullbright
     * 'C': Sneak
@@ -32,8 +34,6 @@ Each command can be used to enable certain modification or performance a task. T
     * 'X': Xray
     * 'Y': AutoBow
     * 'Z': AntiKB
-
-* Type "/-" in chat allows a command to receive additional inputs. For example, "/.attack" in chat will lists five closest living entities on the chat window. You can chose the one by typing in chat "/-" follow by a number between 1 and 5. Once selected the player will attack the entity until it was killed
 
 # To learn how to develop a custom command
 
