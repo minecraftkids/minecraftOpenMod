@@ -137,7 +137,7 @@ public interface GameControl {
 
 	/**
 	 * Set if the player is on ground on the client side
-	 * @param onGround
+	 * @param onGround if on ground
 	 */
 	@I_PlayerLocation
 	void setPlayerOnGround(boolean onGround);
@@ -296,8 +296,8 @@ public interface GameControl {
 	
 	/**
 	 * Highlight an entity in render thread
-	 * @param entityName 
-	 * @param colorMode
+	 * @param entityName name of the entity
+	 * @param colorMode 0: Enemy; 1: Target; 2: Other; 3: Friend; 4: Team
 	 */
 	@C_RenderUI
 	void renderHighlightEntity(String entityName, int colorMode);

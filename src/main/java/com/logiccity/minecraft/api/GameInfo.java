@@ -123,7 +123,7 @@ public interface GameInfo {
 	boolean isPlayerChaningLocation();
 	/**
 	 * Get the speed that the player is moving forward
-	 * @return the speed that player is moving forward(>0) or backward(<0)
+	 * @return the speed that player is moving forward(positive) or backward(negative)
 	 */
 	@I_MovementState
 	float getPlayerForwardSpeed();
