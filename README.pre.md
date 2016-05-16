@@ -8,32 +8,30 @@ A modified Minecraft client that exposes a clean and simple interface to literal
 <<include[doc/tutorial/md/installationSteps.md]>>
 
 # Using the modified Minecraft client
-* Type "/." and then the "Tab" key to see a list of all sample commands:
+* Type "/." and then the "Tab" key to see a list of existing commands:
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/mcCommands.JPG)
-A command is to performance a task for the player. For example type "/.buildMaze 5 5 1" in the chat will build a random maze with supplied dimension.
-* Type "//" and then the "Tab" key to see a list of all sample mods:
-![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/mcMods.JPG)
-Each Mod name is follow by a shortcut key in braces. A mod can also be toggled on or off by press Ctrl+shortcut key. A mod is to change the capability/state of the player. For example the "//xray(X)" will allow users to see through blocks. You can type "//xray" in chat or use Ctrl-x to enable or disable it. To change the short-cut key "x", after entered "//xray(X)" on chat line, type Ctrl-[new key]. The current list of mods:
-    * Ctr-1: NoWeb
-    * Ctr-B: Fullbright
-    * Ctr-F: Flight
-    * Ctr-G: NameTags
-    * Ctr-H: AntiMac
-    * Ctr-I: Tracer
-    * Ctr-J: BaseFinder
-    * Ctr-K: AutoAttack
-    * Ctr-L: NoFall
-    * Ctr-LSHIFT: Sneak
-    * Ctr-M: AntiAFK
-    * Ctr-N: Critical
-    * Ctr-P: ChestESP
-    * Ctr-R: KillAura
-    * Ctr-S: AutoSprint
-    * Ctr-U: Freecam
-    * Ctr-V: ProphuntEspMod
-    * Ctr-X: Xray
-    * Ctr-Y: AutoBow
-    * Ctr-Z: AntiKB
+Each command can be used to enable certain modification or performance a task. The command names that end with "(?)" are associated with a short cut key. When not in chat line, type the short cut key will enable/disable the corresponding command. Within the chat line, typing command name preceded by "/." will enable/disable the command. Once enable, the MC client title bar should enabled commands as shown in the screenshot for the "Fullbright" command
+
+* The following are the list of command with associated shotcut keys. Please see the tutorial sections on how to develop each one of them in Blockly or Java:
+
+    * 'B': Fullbright
+    * 'C': Sneak
+    * 'F': Flight
+    * 'G': NameTags
+    * 'H': BaseFinder
+    * 'I': Tracer
+    * 'J': AutoSprint
+    * 'K': ArmorStatus
+    * 'L': NoFall
+    * 'M': AntiAFK
+    * 'N': Criticals
+    * 'P': ChestESP
+    * 'R': KillAura
+    * 'U': Freecam
+    * 'V': ProphuntEsp
+    * 'X': Xray
+    * 'Y': AutoBow
+    * 'Z': AntiKB
 
 * Type "/-" in chat allows a command to receive additional inputs. For example, "/.attack" in chat will lists five closest living entities on the chat window. You can chose the one by typing in chat "/-" follow by a number between 1 and 5. Once selected the player will attack the entity until it was killed
 

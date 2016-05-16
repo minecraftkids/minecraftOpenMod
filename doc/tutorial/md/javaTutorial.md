@@ -5,6 +5,7 @@ Table of Contents
   * [Setup IDE](#setup-ide)
   * [Create and install your own command](#create-and-install-your-own-command)
   * [Command super classes CustomCommandBase vs <code>CustomModCommandBase</code> ](#command-super-classes-customcommandbase-vs-custommodcommandbase)
+  * [Sample Commands](#sample-commands)
 
 # Install and start the modified Minecraft client
 * Download 1.8.8.mod.zip on the [release page](https://github.com/minecraftkids/minecraftOpenMod/releases)
@@ -26,7 +27,7 @@ If you are interested in using the popular [Eclipse](https://eclipse.org/)/[Grad
 # Create and install your own command
 * If Minecraft client is running, use Esc key to pause the game:
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/mcPaulsed.jpg)
-* As an example, open the Jump.java class in com.logiccity.minecraft.api.command package. Change `super("jump");` to `super("jumpOnce");` and save the file
+* As an example, open the Jump.java class in com.logiccity.minecraft.api.command.trial package. Change `super("jump");` to `super("jumpOnce");` and save the file
 * Download sourceEditor.zip on the [release page](../releases)
 * Unzip the content and open the mod/index.html file in any browser. Click on the "Choose File" button:
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/editorChooseFile.JPG)
@@ -41,9 +42,34 @@ If you are interested in using the popular [Eclipse](https://eclipse.org/)/[Grad
 
 # Command super classes `CustomCommandBase` vs `CustomModCommandBase`
 
-The "jumpOnce" command extends from class `CustomCommandBase`, it executes a single action once. A more complex example would be to perform actions and check on status until a certain goal is achieved. Minecraft's game loop normally runs at a fixed rate of 20 ticks per second. There are special threads to handle game status update, and UI rendering. To perform action in those threads, a command needs extend from `CustomModCommandBase` and override the methods:
+The "jumpOnce" command extends from class `CustomCommandBase`, it executes a single action once. A more complex example would be to perform actions and check on status until the command is stopped or a certain goal is achieved. Minecraft's game loop normally runs at a fixed rate of 20 ticks per second. There are special threads to handle game status update and UI rendering. To perform action in those threads, a command needs extend from `CustomModCommandBase` and override the methods:
 * `boolean doInUpdateTicThread()`
 * `boolean doInRenderTicThread()`
+* `boolean doInPostInGameRenderTicThread()`
 
-These methods will be executed many times per second. Both of them return a Boolean value. A false value means the command actions will continue to be invoked in the following tick. A true value signal the goal of this command is achieved and it will stop the command. There are many sample commands in the com.logiccity.minecraft.api.command package. Along with super classes, all commands must implement either [CommandInterface](http://minecraftkids.github.io/minecraftOpenMod/com/logiccity/minecraft/api/CommandInterface.html) or [ModCommandInterface](http://minecraftkids.github.io/minecraftOpenMod/com/logiccity/minecraft/api/ModCommandInterface.html). The main interfaces to Minecraft code are [GameInfo](http://minecraftkids.github.io/minecraftOpenMod/com/logiccity/minecraft/api/GameInfo.html) and [GameControl](http://minecraftkids.github.io/minecraftOpenMod/com/logiccity/minecraft/api/GameControl.html)
+These methods will be executed many times per second. All of them return a Boolean value. A false value means the command actions will continue to be invoked in the following tick. A true value signal the goal of this command is achieved and it will stop the command. Along with super classes, all commands must implement either [CommandInterface](http://minecraftkids.github.io/minecraftOpenMod/com/logiccity/minecraft/api/CommandInterface.html) or [ModCommandInterface](http://minecraftkids.github.io/minecraftOpenMod/com/logiccity/minecraft/api/ModCommandInterface.html). The main interfaces to Minecraft code are [GameInfo](http://minecraftkids.github.io/minecraftOpenMod/com/logiccity/minecraft/api/GameInfo.html) and [GameControl](http://minecraftkids.github.io/minecraftOpenMod/com/logiccity/minecraft/api/GameControl.html)
 
+# Sample Commands
+
+Please take a look at the source code in [Java Demos](https://github.com/minecraftkids/minecraftOpenMod/tree/master/src/main/java/com/logiccity/minecraft/api/command/demo) for the following example commands with shortcut keys:
+
+    * 'B': Fullbright
+    * 'C': Sneak
+    * 'F': Flight
+    * 'G': NameTags
+    * 'H': BaseFinder
+    * 'I': Tracer
+    * 'J': AutoSprint
+    * 'K': ArmorStatus
+    * 'L': NoFall
+    * 'M': AntiAFK
+    * 'N': Criticals
+    * 'P': ChestESP
+    * 'R': KillAura
+    * 'U': Freecam
+    * 'V': ProphuntEsp
+    * 'X': Xray
+    * 'Y': AutoBow
+    * 'Z': AntiKB
+    
+    
