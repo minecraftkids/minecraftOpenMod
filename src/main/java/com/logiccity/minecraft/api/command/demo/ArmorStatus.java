@@ -4,7 +4,7 @@ import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 
 public class ArmorStatus extends CustomModCommandBase {
 	private ArmorStatus() {
-		super("ArmorStatus", "K", 0, 1, 2, 3, 4);
+		super("ArmorStatus", 0, 1, 2, 3, 4);
 	}
 	
 	@Override

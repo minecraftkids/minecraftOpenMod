@@ -4,7 +4,7 @@ import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 
 public class ProphuntEsp extends CustomModCommandBase {
 	private ProphuntEsp() {
-		super("ProphuntEsp", "V");
+		super("ProphuntEsp", "K");
 	}
 	
 	@Override

@@ -10,7 +10,7 @@ import com.logiccity.minecraft.api.impl.CustomModCommandBase;
 public class Sneak extends CustomModCommandBase {
 
 	private Sneak() {
-		super("Sneak", "C");
+		super("Sneak");
 	}
 
 	@Override

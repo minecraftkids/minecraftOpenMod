@@ -35,19 +35,19 @@ public class KillAura extends CustomModCommandBase {
 		if (enl != null && enl.size() > 0) {
 			String en = enl.get(0);
 			BlockPos bp = gameInfo.getLivingEntityLocation(en);
-			if (gameInfo.getPlayerDistanceSq(bp.getX(), bp.getY(), bp.getZ()) <= rangeSQ) {
+			if (bp!=null&&gameInfo.getPlayerDistanceSq(bp.getX(), bp.getY(), bp.getZ()) <= rangeSQ) {
 				if (hasMillisPassed(waitMS)) {
-					if (! gameInfo.isCommandRunning("Criticals")) {
-						gameControl.executeCommand("Criticals", null);
-					}
+//					if (! gameInfo.isCommandRunning("Criticals")) {
+//						gameControl.executeCommand("Criticals", null);
+//					}
 					gameControl.sendFaceEntityAttackPackets(en);
 				}
 				return false;
 			}
 		}
-		if (gameInfo.isCommandRunning("Criticals")) {
-			gameControl.stopCommand("Criticals");
-		}
+//		if (gameInfo.isCommandRunning("Criticals")) {
+//			gameControl.stopCommand("Criticals");
+//		}
 		return false;
 	}
 }

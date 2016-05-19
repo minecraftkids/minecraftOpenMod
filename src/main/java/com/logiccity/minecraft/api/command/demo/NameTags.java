@@ -18,7 +18,7 @@ public class NameTags extends CustomCommandBase {
 		if (args != null && args.length > 0) {
 			gameControl.setPlayerLabelScale(Float.parseFloat(args[0]));
 		} else {
-			gameControl.setPlayerLabelScale(2);
+			gameControl.setPlayerLabelScale(1);
 		}
 	}
 }
