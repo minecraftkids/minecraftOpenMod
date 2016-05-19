@@ -9,7 +9,7 @@ public class Flight extends CustomModCommandBase {
 
 	@Override
 	public void initCmd(String[] args) {
-		gameControl.executeCommand("NoFall", null);
+//		gameControl.executeCommand("NoFall", null);
 	}
 	
 	@Override

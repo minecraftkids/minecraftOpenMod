@@ -10,7 +10,7 @@ import com.logiccity.minecraft.api.impl.CustomCommandBase;
 public class NameTags extends CustomCommandBase {
 
 	private NameTags() {
-		super("NameTags", "G");
+		super("NameTags", "G", 0, 1);
 	}
 	
 	@Override
