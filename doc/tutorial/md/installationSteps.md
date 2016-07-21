@@ -1,4 +1,4 @@
-* Install [Forge](http://files.minecraftforge.net/) for the desired Minecraft version
+* Install [Forge](http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.10.2.html) for Minecraft version 1.10.2
 * Download minecraftOpenModInit.zip on the [release page](https://github.com/minecraftkids/minecraftOpenMod/releases) and copy it to the Mincraft mods folder. On windows: %appData%/minecraft/mods
 ![](https://raw.githubusercontent.com/minecraftkids/minecraftOpenMod/master/doc/tutorial/modFolderExplor.JPG)
 * Start Minecraft client and select Forge profile. Make sure that minecraftOpenModInit is installed:
